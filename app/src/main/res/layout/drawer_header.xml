@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="176dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:background="@color/blue"
+    android:paddingTop="64dp"
+    android:paddingStart="16dp">
+
+    <TextView
+        android:id="@+id/tv_header_team_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Blue Team"
+        />
+    <TextView
+        android:id="@+id/tv_header_season"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Summer 2022"/>
+</LinearLayout>

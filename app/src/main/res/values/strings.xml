@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">SuperSub</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation darwer</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="team">Team</string>
+    <string name="formations">Formations</string>
+    <string name="settings">Settings</string>
+    <string name="other_actions">Other Actions</string>
+    <string name="switch_teams">Switch Teams</string>
+    <string name="team_list">Team List</string>
+    <string name="your_teams">Your Teams</string>
+    <string name="edit">Edit</string>
+    <string name="matches">Matches</string>
+    <string name="upcoming">Upcoming</string>
 </resources>

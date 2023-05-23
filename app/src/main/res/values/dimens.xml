@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_layout_padding">16dp</dimen>
+    <dimen name="default_view_margin">16dp</dimen>
+    <dimen name="default_corner_radius">16dp</dimen>
+    <dimen name="default_elevation">8dp</dimen>
+</resources>
