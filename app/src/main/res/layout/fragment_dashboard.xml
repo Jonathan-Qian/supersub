@@ -32,12 +32,91 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/upcoming"/>
-                <TextView
-                    android:layout_width="wrap_content"
+                    android:text="@string/upcoming" />
+                <include
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Next Match"/>
+                    layout="@layout/dashboard_match_card_element" />
+                <include
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    layout="@layout/dashboard_match_card_element" />
+                <include
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    layout="@layout/dashboard_match_card_element" />
+                <!--<ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/previous"
+                    android:layout_marginTop="@dimen/default_view_margin"/>
+                <include
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    layout="@layout/dashboard_match_card_element" />
+                <include
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    layout="@layout/dashboard_match_card_element" />
+                <include
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    layout="@layout/dashboard_match_card_element" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/set_up_match"
+                        style="@style/TypeBody"
+                        android:layout_marginRight="8dp"
+                        android:drawableBottom="@drawable/ic_add"
+                        android:drawableTint="@color/white"/>
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/edit_match"
+                        style="@style/TypeBody"
+                        android:drawableBottom="@drawable/ic_edit"
+                        android:drawableTint="@color/white"/>
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/start_match"
+                        style="@style/TypeBody"
+                        android:layout_marginLeft="8dp"
+                        android:drawableBottom="@drawable/ic_play"
+                        android:drawableTint="@color/white"/>
+                </LinearLayout>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/view_all_matches"
+                    style="@style/TypeBody"/>
             </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_view_margin"
+            android:text="@string/team"
+            style="@style/TypeHeading"/>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_view_margin"
+            app:cardCornerRadius="@dimen/default_corner_radius">
+
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 </ScrollView>

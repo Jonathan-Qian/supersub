@@ -41,7 +41,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="New Team +"
+        android:text="@string/plus_new_team"
         android:layout_marginTop="@dimen/default_view_margin" />
 
 </LinearLayout>

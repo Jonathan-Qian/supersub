@@ -1,6 +1,5 @@
-package com.example.supersub;
+package com.example.supersub.ui;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.supersub.R;
 import com.example.supersub.models.Team;
 
 import java.util.ArrayList;

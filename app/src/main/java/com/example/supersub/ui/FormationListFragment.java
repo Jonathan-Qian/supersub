@@ -1,4 +1,4 @@
-package com.example.supersub;
+package com.example.supersub.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,18 +11,18 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.supersub.R;
 import com.example.supersub.models.Team;
 
 import java.util.ArrayList;
 
-public class TeamListFragment extends Fragment {
-    private RecyclerView recyclerView;
+public class FormationListFragment extends Fragment {
+    RecyclerView recyclerView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ((DrawerLocker) getActivity()).setDrawerEnabled(false);
-        return inflater.inflate(R.layout.fragment_team_list, container, false);
+        return inflater.inflate(R.layout.fragment_formation_list, container, false);
     }
 
     @Override

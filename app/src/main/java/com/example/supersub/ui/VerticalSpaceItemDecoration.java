@@ -1,4 +1,4 @@
-package com.example.supersub;
+package com.example.supersub.ui;
 
 import android.graphics.Rect;
 import android.view.View;

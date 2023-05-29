@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class Positions {
-    private static HashMap<Integer, Positions.Position> positions;
+    private static HashMap<String, Positions.Position> positions;
 
     protected static class Position {
         private String name;
@@ -22,11 +22,11 @@ public class Positions {
         }
     }
 
-    public static String getPositionName(Integer id) {
+    protected static String getPositionName(String id) {
         return positions.get(id).name;
     }
 
-    public static String getPositionSymbol(Integer id) {
+    protected static String getPositionSymbol(String id) {
         return positions.get(id).symbol;
     }
 

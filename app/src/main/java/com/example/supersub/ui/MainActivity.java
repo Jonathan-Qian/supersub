@@ -1,4 +1,4 @@
-package com.example.supersub;
+package com.example.supersub.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -8,11 +8,11 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
-import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.supersub.R;
 import com.example.supersub.models.Positions;
 import com.google.android.material.navigation.NavigationView;
 

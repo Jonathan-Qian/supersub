@@ -2,7 +2,7 @@
     <string name="app_name">SuperSub</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation darwer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="dashboard">Dashboard</string>
     <string name="team">Team</string>
     <string name="formations">Formations</string>
@@ -14,4 +14,23 @@
     <string name="edit">Edit</string>
     <string name="matches">Matches</string>
     <string name="upcoming">Upcoming</string>
+    <string name="previous">Previous</string>
+    <string name="set_up_match">Set Up Match</string>
+    <string name="edit_match">Edit Match</string>
+    <string name="start_match">Start Match</string>
+    <string name="view_all_matches">View All Matches</string>
+    <string name="create_single_match">Create Single Match</string>
+    <string name="cancel">Cancel</string>
+    <string name="set_up_multiple_matches_at_once">Set Up Multiple Matches At Once</string>
+    <string name="opponent_team_name_optional">Opponent Team Name (Optional)</string>
+    <string name="date">Date</string>
+    <string name="time_optional">Time (Optional)</string>
+    <string name="match_duration_optional">Match Duration (Optional)</string>
+    <string name="minutes">minutes</string>
+    <string name="player_count">Player Count</string>
+    <string name="a_side_including_goalkeeper">a side (including goalkeeper)</string>
+    <string name="plus_new_team">+ New Team</string>
+    <string name="plus_create_match">+ Create Match</string>
+    <string name="default_formations">Default Formations</string>
+    <string name="custom_formations">Custom Formations</string>
 </resources>

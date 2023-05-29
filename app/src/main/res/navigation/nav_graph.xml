@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/teamListFragment"
-        android:name="com.example.supersub.TeamListFragment"
+        android:name="com.example.supersub.ui.TeamListFragment"
         android:label="@string/team_list" >
         <action
             android:id="@+id/action_teamListFragment_to_dashboardFragment"
@@ -14,6 +14,6 @@
     </fragment>
     <fragment
         android:id="@+id/dashboardFragment"
-        android:name="com.example.supersub.DashboardFragment"
+        android:name="com.example.supersub.ui.DashboardFragment"
         android:label="@string/dashboard" />
 </navigation>
