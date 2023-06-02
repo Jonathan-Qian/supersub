@@ -2,11 +2,11 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navigation"
-    app:startDestination="@id/teamListFragment">
+    app:startDestination="@id/dashboardFragment">
 
     <fragment
         android:id="@+id/teamListFragment"
-        android:name="com.example.supersub.ui.TeamListFragment"
+        android:name="com.example.supersub.ui.fragments.TeamListFragment"
         android:label="@string/team_list" >
         <action
             android:id="@+id/action_teamListFragment_to_dashboardFragment"
@@ -14,6 +14,6 @@
     </fragment>
     <fragment
         android:id="@+id/dashboardFragment"
-        android:name="com.example.supersub.ui.DashboardFragment"
+        android:name="com.example.supersub.ui.fragments.DashboardFragment"
         android:label="@string/dashboard" />
 </navigation>

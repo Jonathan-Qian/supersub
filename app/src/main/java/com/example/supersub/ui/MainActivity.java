@@ -19,11 +19,10 @@ import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, DrawerLocker {
     private DrawerLayout drawer;
     private Toolbar toolbar;
-
-    ActionBarDrawerToggle toggle;
-    NavigationView navigationView;
-    NavHostFragment navHostFragment;
-    NavController navController;
+    private ActionBarDrawerToggle toggle;
+    private NavigationView navigationView;
+    private NavHostFragment navHostFragment;
+    private NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         Positions.init(getApplicationContext());
+        System.out.println(Positions.positionsToString());
 
         navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
         navController = navHostFragment.getNavController();

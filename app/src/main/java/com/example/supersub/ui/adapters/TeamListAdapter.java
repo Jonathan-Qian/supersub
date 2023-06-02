@@ -1,4 +1,4 @@
-package com.example.supersub.ui;
+package com.example.supersub.ui.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;

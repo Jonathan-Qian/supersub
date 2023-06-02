@@ -33,4 +33,10 @@
     <string name="plus_create_match">+ Create Match</string>
     <string name="default_formations">Default Formations</string>
     <string name="custom_formations">Custom Formations</string>
+    <string name="manual_save">Manual Save</string>
+    <string name="manual_save_warning">The manual save button should be used to save all data if you expect that this app may not be closed properly or to save important changes just in case. This button will be removed once the app is updated to use a database system for storing data.</string>
+    <string name="matches_not_available">Live match, match management and match statistics will be available later.</string>
+    <string name="view_and_manage_team">View and Manage Team</string>
+    <string name="members">Members</string>
+    <string name="statistics">Statistics</string>
 </resources>

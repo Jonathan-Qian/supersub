@@ -1,22 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="176dp"
+    android:layout_height="wrap_content"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
-    android:background="@color/blue"
-    android:paddingTop="64dp"
-    android:paddingStart="16dp">
+    android:background="@color/black"
+    android:paddingTop="48dp"
+    android:paddingStart="@dimen/default_layout_padding"
+    android:paddingEnd="@dimen/default_layout_padding"
+    android:paddingBottom="@dimen/default_layout_padding">
 
     <TextView
         android:id="@+id/tv_header_team_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Blue Team"
+        android:text="Team"
         />
     <TextView
         android:id="@+id/tv_header_season"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Summer 2022"/>
+        android:text="Season"/>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_view_margin"
+        app:cardCornerRadius="@dimen/default_corner_radius">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="@dimen/default_layout_padding"
+            android:background="@color/red">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_warning"
+                app:tint="@color/white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/manual_save_warning"
+                style="@style/TypeBody"
+                android:layout_marginLeft="@dimen/default_view_margin"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 </LinearLayout>
