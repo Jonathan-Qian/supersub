@@ -1,28 +1,30 @@
 package com.example.supersub.ui;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
-import android.view.MenuItem;
 
 import com.example.supersub.R;
 import com.example.supersub.models.Positions;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, DrawerLocker {
+public class MainActivity extends AppCompatActivity implements DrawerLocker {
     private DrawerLayout drawer;
     private Toolbar toolbar;
     private ActionBarDrawerToggle toggle;
-    private NavigationView navigationView;
+    private NavigationView navView;
     private NavHostFragment navHostFragment;
     private NavController navController;
+    private AppBarConfiguration appBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,40 +34,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Positions.init(getApplicationContext());
         System.out.println(Positions.positionsToString());
 
+        toolbar = findViewById(R.id.toolbar);
+        drawer = findViewById(R.id.drawer_layout);
+        navView = findViewById(R.id.nav_view);
         navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
         navController = navHostFragment.getNavController();
+        appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.teamListFragment, R.id.createTeamFragment
+        ).setOpenableLayout(drawer).build();
 
-        //NavigationUI.setupWithNavController(navigationView, navController);
-
-        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        NavigationUI.setupWithNavController(navView, navController);
 
-        drawer = findViewById(R.id.drawer_layout);
-
-        navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
 
         toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        /*switch (item.getItemId()) {
-            case R.id.nav_dashboard:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new DashboardFragment()).commit();
-                break;
-            case R.id.nav_switch_teams:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new TeamListFragment()).commit();
-                break;
-        }*/
-
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 
     @Override
@@ -84,5 +70,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 DrawerLayout.LOCK_MODE_LOCKED_CLOSED;
         drawer.setDrawerLockMode(lockMode);
         toggle.setDrawerIndicatorEnabled(enabled);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        return navController.navigateUp() || super.onSupportNavigateUp();
     }
 }

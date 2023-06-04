@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,7 +25,6 @@ public class CreateTeamFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ((DrawerLocker) getActivity()).setDrawerEnabled(false);
         return inflater.inflate(R.layout.fragment_create_team, container, false);
     }
 
@@ -53,22 +53,27 @@ public class CreateTeamFragment extends Fragment {
         buttonAddTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TeamFacade teamFacade = new TeamFacade(
-                        etTeamName.getText().toString(),
-                        etSeason.getText().toString(),
-                        etDescription.getText().toString(),
-                        Color.rgb(
-                                Integer.parseInt(etColorR.getText().toString()),
-                                Integer.parseInt(etColorG.getText().toString()),
-                                Integer.parseInt(etColorB.getText().toString())
-                        )
-                );
+                if (!(etTeamName.getText().toString().equals(""))) {
+                    TeamFacade teamFacade = new TeamFacade(
+                            etTeamName.getText().toString(),
+                            etSeason.getText().toString(),
+                            etDescription.getText().toString(),
+                            Color.rgb(
+                                    Integer.parseInt(etColorR.getText().toString()),
+                                    Integer.parseInt(etColorG.getText().toString()),
+                                    Integer.parseInt(etColorB.getText().toString())
+                            )
+                    );
 
-                teamFacade.write(view.getContext());
+                    teamFacade.write(view.getContext());
 
-                Navigation.findNavController(view).navigate(
-                        CreateTeamFragmentDirections.actionCreateTeamFragmentToTeamListFragment()
-                );
+                    Navigation.findNavController(view).navigate(
+                            CreateTeamFragmentDirections.actionCreateTeamFragmentToTeamListFragment()
+                    );
+                }
+                else {
+                    Toast.makeText(view.getContext(), R.string.enter_all_required_fields, Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

@@ -44,4 +44,5 @@
     <string name="season">Season</string>
     <string name="description">Description</string>
     <string name="team_color">Team Color</string>
+    <string name="enter_all_required_fields">Enter All Required Fields</string>
 </resources>

@@ -55,6 +55,7 @@ public class DashboardFragment extends Fragment {
         players.add(new Player("Joshua", "Few", 5));
         players.add(new Player("Caleb", "Richards", 6));
         TeamCardAdapter adapter = new TeamCardAdapter(players);
+        //TODO: If players.size() == 0, show a TextView saying "No Players" instead of the RecyclerView
 
         recyclerView.setAdapter(adapter);
         GridLayoutManager layoutManager = new GridLayoutManager(view.getContext(), 3);

@@ -5,27 +5,31 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_dashboard"
+            android:id="@+id/dashboardFragment"
             android:title="@string/dashboard"
-            android:icon="@drawable/ic_home" />
+            android:icon="@drawable/ic_home"
+            android:menuCategory="secondary" />
         <item
             android:id="@+id/nav_team"
             android:title="@string/team"
-            android:icon="@drawable/ic_team" />
+            android:icon="@drawable/ic_team"
+            android:menuCategory="secondary" />
         <item
             android:id="@+id/nav_formations"
             android:title="@string/formations"
-            android:icon="@drawable/temp_formation"/>
+            android:icon="@drawable/temp_formation"
+            android:menuCategory="secondary" />
         <item
             android:id="@+id/nav_settings"
             android:title="@string/settings"
-            android:icon="@drawable/ic_settings"/>
+            android:icon="@drawable/ic_settings"
+            android:menuCategory="secondary" />
     </group>
 
     <item android:title="Other Actions">
         <menu>
             <item
-                android:id="@+id/nav_switch_teams"
+                android:id="@+id/teamListFragment"
                 android:title="@string/switch_teams"
                 android:icon="@drawable/ic_exit"/>
             <item
