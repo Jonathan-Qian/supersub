@@ -5,7 +5,7 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/dashboardFragment"
+            android:id="@+id/nav_dashboard"
             android:title="@string/dashboard"
             android:icon="@drawable/ic_home"
             android:menuCategory="secondary" />
@@ -29,11 +29,11 @@
     <item android:title="Other Actions">
         <menu>
             <item
-                android:id="@+id/teamListFragment"
+                android:id="@+id/nav_team_list"
                 android:title="@string/switch_teams"
                 android:icon="@drawable/ic_exit"/>
             <item
-                android:id="@+id/manual_save"
+                android:id="@+id/nav_manual_save"
                 android:title="@string/manual_save"
                 android:icon="@drawable/ic_save"/>
         </menu>
