@@ -1,0 +1,75 @@
+package com.example.supersub.ui.fragments;
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+
+import com.example.supersub.R;
+import com.example.supersub.models.TeamFacade;
+import com.example.supersub.ui.DrawerLocker;
+
+public class CreateTeamFragment extends Fragment {
+    private EditText etTeamName, etSeason, etDescription, etColorR, etColorG, etColorB;
+    private Button buttonCancel, buttonAddTeam;
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        ((DrawerLocker) getActivity()).setDrawerEnabled(false);
+        return inflater.inflate(R.layout.fragment_create_team, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        buttonCancel = view.findViewById(R.id.button_create_team_cancel);
+        etTeamName = view.findViewById(R.id.et_team_name);
+        etSeason = view.findViewById(R.id.et_season);
+        etDescription = view.findViewById(R.id.et_description);
+        etColorR = view.findViewById(R.id.et_color_r);
+        etColorG = view.findViewById(R.id.et_color_g);
+        etColorB = view.findViewById(R.id.et_color_b);
+        buttonAddTeam = view.findViewById(R.id.button_add_team);
+
+        buttonCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(
+                        CreateTeamFragmentDirections.actionCreateTeamFragmentToTeamListFragment()
+                );
+            }
+        });
+
+        buttonAddTeam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TeamFacade teamFacade = new TeamFacade(
+                        etTeamName.getText().toString(),
+                        etSeason.getText().toString(),
+                        etDescription.getText().toString(),
+                        Color.rgb(
+                                Integer.parseInt(etColorR.getText().toString()),
+                                Integer.parseInt(etColorG.getText().toString()),
+                                Integer.parseInt(etColorB.getText().toString())
+                        )
+                );
+
+                teamFacade.write(view.getContext());
+
+                Navigation.findNavController(view).navigate(
+                        CreateTeamFragmentDirections.actionCreateTeamFragmentToTeamListFragment()
+                );
+            }
+        });
+    }
+}

@@ -8,7 +8,15 @@ public class Team {
     private String description;
     private int color;
     private ArrayList<Player> players;
+    private static Team currentTeam;
 
+    public Team(TeamFacade teamFacade) {
+        this.name = teamFacade.getName();
+        this.season = teamFacade.getSeason();
+        this.description = teamFacade.getDescription();
+        this.color = teamFacade.getColor();
+        open(teamFacade);
+    }
     public Team(String name, String season, String description, int color, ArrayList<Player> players) {
         this.name = name;
         this.season = season;
@@ -18,6 +26,10 @@ public class Team {
     }
     public Team(String name, String season, String description, int color) {
         this(name, season, description, color, new ArrayList<Player>());
+    }
+
+    public static Team getCurrentTeam() {
+        return currentTeam;
     }
 
     public String getName() {
@@ -58,5 +70,9 @@ public class Team {
 
     public void setPlayers(ArrayList<Player> players) {
         this.players = players;
+    }
+
+    private void open(TeamFacade teamFacade) {
+        teamFacade.getDoor();
     }
 }

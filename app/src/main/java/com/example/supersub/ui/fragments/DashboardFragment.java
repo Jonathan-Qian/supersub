@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.supersub.R;
 import com.example.supersub.models.Player;
+import com.example.supersub.ui.DrawerLocker;
 import com.example.supersub.ui.adapters.TeamCardAdapter;
 import com.example.supersub.ui.VerticalSpaceItemDecoration;
 
@@ -24,6 +25,7 @@ public class DashboardFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        ((DrawerLocker) getActivity()).setDrawerEnabled(true);
         return inflater.inflate(R.layout.fragment_dashboard, container, false);
     }
 
@@ -39,6 +41,19 @@ public class DashboardFragment extends Fragment {
         players.add(new Player("Ryan", "Anderson", 3));
         players.add(new Player("Jayden", "Rye", 4));
         players.add(new Player("Joshua", "Few", 5));
+        players.add(new Player("Caleb", "Richards", 6));
+        players.add(new Player("John", "Smith", 1));
+        players.add(new Player("John", "Doe", 2));
+        players.add(new Player("Ryan", "Anderson", 3));
+        players.add(new Player("Jayden", "Rye", 4));
+        players.add(new Player("Joshua", "Few", 5));
+        players.add(new Player("Caleb", "Richards", 6));
+        players.add(new Player("John", "Smith", 1));
+        players.add(new Player("John", "Doe", 2));
+        players.add(new Player("Ryan", "Anderson", 3));
+        players.add(new Player("Jayden", "Rye", 4));
+        players.add(new Player("Joshua", "Few", 5));
+        players.add(new Player("Caleb", "Richards", 6));
         TeamCardAdapter adapter = new TeamCardAdapter(players);
 
         recyclerView.setAdapter(adapter);

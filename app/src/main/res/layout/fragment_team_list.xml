@@ -3,8 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:padding="@dimen/default_layout_padding">
+    android:padding="@dimen/default_layout_padding"
+    tools:context=".ui.fragments.TeamListFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -39,9 +41,10 @@
         android:layout_marginTop="@dimen/default_view_margin" />
 
     <Button
+        android:id="@+id/button_new_team"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/plus_new_team"
-        android:layout_marginTop="@dimen/default_view_margin" />
+        android:layout_marginTop="@dimen/default_view_margin"
+        android:text="@string/plus_new_team" />
 
 </LinearLayout>

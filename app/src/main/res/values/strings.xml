@@ -39,4 +39,9 @@
     <string name="view_and_manage_team">View and Manage Team</string>
     <string name="members">Members</string>
     <string name="statistics">Statistics</string>
+    <string name="create_team">Create Team</string>
+    <string name="team_name">Team Name</string>
+    <string name="season">Season</string>
+    <string name="description">Description</string>
+    <string name="team_color">Team Color</string>
 </resources>

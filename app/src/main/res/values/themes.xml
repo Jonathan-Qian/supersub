@@ -4,6 +4,10 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="colorPrimary">@color/green</item>
         <item name="android:textColorPrimary">@color/white</item>
+        <item name="drawerArrowStyle">@style/DrawerIconStyle</item>
+    </style>
+    <style name="DrawerIconStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@color/white</item>
     </style>
     <style name="TypeHeading">
         <item name="android:textSize">24sp</item>

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/default_layout_padding">
+    android:padding="@dimen/default_layout_padding"
+    tools:context=".ui.fragments.DashboardFragment">
 
     <TextView
         android:layout_width="match_parent"
@@ -33,39 +35,12 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/upcoming" />
-                <include
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    layout="@layout/dashboard_match_card_element" />
-                <include
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    layout="@layout/dashboard_match_card_element" />
-                <include
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    layout="@layout/dashboard_match_card_element" />
-                <!--<ListView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>-->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/previous"
                     android:layout_marginTop="@dimen/default_view_margin"/>
-                <include
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    layout="@layout/dashboard_match_card_element" />
-                <include
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    layout="@layout/dashboard_match_card_element" />
-                <include
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    layout="@layout/dashboard_match_card_element" />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -130,22 +105,31 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/default_view_margin"
         app:cardCornerRadius="@dimen/default_corner_radius">
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:background="@color/light_grey"
             android:padding="@dimen/default_layout_padding">
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_dashboard_team_card_players"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="256dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <Button
+                android:id="@+id/button"
+                style="@style/TypeBody"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/default_view_margin"
                 android:text="@string/view_and_manage_team"
-                style="@style/TypeBody" />
-        </LinearLayout>
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 </LinearLayout>
