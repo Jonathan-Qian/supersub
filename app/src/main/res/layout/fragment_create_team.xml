@@ -1,8 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="@dimen/default_layout_padding"
     tools:context=".ui.fragments.CreateTeamFragment">
@@ -47,7 +47,7 @@
         android:id="@+id/et_team_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black" />
 
     <TextView
         style="@style/TypeSubHeading"
@@ -60,7 +60,7 @@
         android:id="@+id/et_season"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black" />
 
     <TextView
         style="@style/TypeSubHeading"
@@ -73,7 +73,7 @@
         android:id="@+id/et_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black" />
 
     <TextView
         style="@style/TypeSubHeading"
@@ -92,27 +92,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="3"
-            android:inputType="number"
             android:hint="R"
-            android:textColor="@color/black"/>
+            android:inputType="number"
+            android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/et_color_g"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="3"
-            android:inputType="number"
             android:hint="G"
-            android:textColor="@color/black"/>
+            android:inputType="number"
+            android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/et_color_b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="3"
-            android:inputType="number"
             android:hint="B"
-            android:textColor="@color/black"/>
+            android:inputType="number"
+            android:textColor="@color/black" />
     </LinearLayout>
 
     <Button

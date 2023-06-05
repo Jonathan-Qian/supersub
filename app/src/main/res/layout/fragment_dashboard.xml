@@ -9,102 +9,114 @@
     tools:context=".ui.fragments.DashboardFragment">
 
     <TextView
+        style="@style/TypeHeading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/matches"
-        style="@style/TypeHeading"/>
+        android:text="@string/matches" />
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/default_view_margin"
         app:cardCornerRadius="@dimen/default_corner_radius">
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:background="@color/light_grey"
-                android:showDividers="middle"
                 android:divider="?android:dividerHorizontal"
-                android:padding="@dimen/default_layout_padding">
+                android:orientation="vertical"
+                android:padding="@dimen/default_layout_padding"
+                android:showDividers="middle">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/upcoming" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_view_margin"
                     android:gravity="center"
-                    android:text="@string/previous"
-                    android:layout_marginTop="@dimen/default_view_margin"/>
+                    android:text="@string/previous" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <Button
+                        style="@style/TypeBody"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/set_up_match"
-                        style="@style/TypeBody"
                         android:layout_marginRight="8dp"
+                        android:layout_weight="1"
                         android:drawableBottom="@drawable/ic_add"
-                        android:drawableTint="@color/white"/>
+                        android:drawableTint="@color/white"
+                        android:text="@string/set_up_match" />
+
                     <Button
+                        style="@style/TypeBody"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/edit_match"
-                        style="@style/TypeBody"
                         android:drawableBottom="@drawable/ic_edit"
-                        android:drawableTint="@color/white"/>
+                        android:drawableTint="@color/white"
+                        android:text="@string/edit_match" />
+
                     <Button
+                        style="@style/TypeBody"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/start_match"
-                        style="@style/TypeBody"
                         android:layout_marginLeft="8dp"
+                        android:layout_weight="1"
                         android:drawableBottom="@drawable/ic_play"
-                        android:drawableTint="@color/white"/>
+                        android:drawableTint="@color/white"
+                        android:text="@string/start_match" />
                 </LinearLayout>
+
                 <Button
+                    style="@style/TypeBody"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/view_all_matches"
-                    style="@style/TypeBody"/>
+                    android:text="@string/view_all_matches" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="#C0000000"
                 android:gravity="center"
-                android:padding="@dimen/default_layout_padding"
-                android:background="#C0000000">
+                android:padding="@dimen/default_layout_padding">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/matches_not_available"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white" />
             </LinearLayout>
         </FrameLayout>
     </com.google.android.material.card.MaterialCardView>
 
-
     <TextView
+        style="@style/TypeHeading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/default_view_margin"
-        android:text="@string/team"
-        style="@style/TypeHeading"/>
+        android:text="@string/team" />
+
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/default_view_margin"
         app:cardCornerRadius="@dimen/default_corner_radius">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

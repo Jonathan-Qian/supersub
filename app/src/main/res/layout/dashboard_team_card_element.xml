@@ -9,14 +9,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="number"
-        android:textSize="24sp"/>
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/tv_dashboard_team_card_element_name"
+        style="@style/TypeBody"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
         android:layout_gravity="center"
-        android:text="firstName lastName"
-        style="@style/TypeBody"/>
+        android:layout_marginLeft="8dp"
+        android:text="firstName lastName" />
 </LinearLayout>
