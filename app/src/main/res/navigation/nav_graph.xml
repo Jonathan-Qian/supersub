@@ -26,5 +26,5 @@
         <action
             android:id="@+id/action_createTeamFragment_to_teamListFragment"
             app:destination="@id/teamListFragment" />
-    </fragment>
+    </fragment><action android:id="@+id/action_global_teamListFragment" app:destination="@id/teamListFragment"/><action android:id="@+id/action_global_dashboardFragment" app:destination="@id/dashboardFragment"/>
 </navigation>
