@@ -6,10 +6,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.supersub.NavigationDirections;
 import com.example.supersub.R;
 import com.example.supersub.models.Positions;
 import com.google.android.material.navigation.NavigationView;
@@ -19,6 +23,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Toolbar toolbar;
     private ActionBarDrawerToggle toggle;
     private NavigationView navView;
+    private NavHostFragment navHostFragment;
+    private NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         navView = findViewById(R.id.nav_view);
+        navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+        navController = navHostFragment.getNavController();
 
         System.out.println(Positions.positionsToString());
         setSupportActionBar(toolbar);
@@ -41,19 +49,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        /*switch (item.getItemId()) {
+        switch (item.getItemId()) {
             case R.id.nav_dashboard:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new DashboardFragment()).commit();
+                navController.navigate(
+                        com.example.supersub.NavigationDirections.actionGlobalDashboardFragment()
+                );
                 break;
-            case R.id.nav_switch_teams:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new TeamListFragment()).commit();
+            case R.id.nav_exit_team:
+                navController.navigate(
+                        NavigationDirections.actionGlobalTeamListFragment()
+                );
                 break;
-        }*/
+        }
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (toggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public void onConfigurationChanged(Configuration configuration) {
+        super.onConfigurationChanged(configuration);
+    }
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        toggle.syncState();
     }
 
     @Override

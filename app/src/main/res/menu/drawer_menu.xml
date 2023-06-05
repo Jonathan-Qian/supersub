@@ -7,30 +7,26 @@
         <item
             android:id="@+id/nav_dashboard"
             android:title="@string/dashboard"
-            android:icon="@drawable/ic_home"
-            android:menuCategory="secondary" />
+            android:icon="@drawable/ic_home" />
         <item
             android:id="@+id/nav_team"
             android:title="@string/team"
-            android:icon="@drawable/ic_team"
-            android:menuCategory="secondary" />
+            android:icon="@drawable/ic_team" />
         <item
             android:id="@+id/nav_formations"
             android:title="@string/formations"
-            android:icon="@drawable/temp_formation"
-            android:menuCategory="secondary" />
+            android:icon="@drawable/ic_formation" />
         <item
             android:id="@+id/nav_settings"
             android:title="@string/settings"
-            android:icon="@drawable/ic_settings"
-            android:menuCategory="secondary" />
+            android:icon="@drawable/ic_settings" />
     </group>
 
     <item android:title="Other Actions">
         <menu>
             <item
-                android:id="@+id/nav_team_list"
-                android:title="@string/switch_teams"
+                android:id="@+id/nav_exit_team"
+                android:title="@string/exit_team"
                 android:icon="@drawable/ic_exit"/>
             <item
                 android:id="@+id/nav_manual_save"
