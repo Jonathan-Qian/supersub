@@ -13,13 +13,23 @@
             android:title="@string/team"
             android:icon="@drawable/ic_team" />
         <item
+            android:id="@+id/nav_matches"
+            android:title="@string/matches"
+            android:icon="@drawable/ic_matches"
+            android:iconTint="@color/light_grey"
+            android:enabled="false" />
+        <item
             android:id="@+id/nav_formations"
             android:title="@string/formations"
-            android:icon="@drawable/ic_formation" />
+            android:icon="@drawable/ic_formation"
+            android:iconTint="@color/light_grey"
+            android:enabled="false" />
         <item
             android:id="@+id/nav_settings"
             android:title="@string/settings"
-            android:icon="@drawable/ic_settings" />
+            android:icon="@drawable/ic_settings"
+            android:iconTint="@color/light_grey"
+            android:enabled="false" />
     </group>
 
     <item android:title="Other Actions">

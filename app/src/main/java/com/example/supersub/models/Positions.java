@@ -1,7 +1,6 @@
 package com.example.supersub.models;
 
 import android.content.Context;
-import android.content.res.AssetManager;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -37,12 +36,22 @@ public class Positions {
         }
     }
 
-    protected static String getPositionName(int id) {
+    public static String getPositionName(int id) {
         return positions.get(id).name;
     }
 
-    protected static String getPositionSymbol(int id) {
+    public static String getPositionSymbol(int id) {
         return positions.get(id).symbol;
+    }
+
+    public static int indexOf(String name) {
+        for (int i = 0; i < positions.size(); i++) {
+            if (name.equals(getPositionName(i))) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     protected static String positionToString(int index) {
@@ -54,8 +63,7 @@ public class Positions {
 
         XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
         XmlPullParser parser = factory.newPullParser();
-        AssetManager assetManager = context.getAssets();
-        parser.setInput(assetManager.open("positions.xml"), "UTF-8");
+        parser.setInput(context.getAssets().open("positions.xml"), "UTF-8");
         int eventType = parser.getEventType();
         PositionGroup currentGroup = null;
 
@@ -86,15 +94,19 @@ public class Positions {
         return positions;
     }
 
+    public static int length() {
+        return positions.size();
+    }
+
     public static void init(Context context) {
         try {
             positions = read(context);
         }
         catch (XmlPullParserException e) {
-            System.err.println(e);
+            e.printStackTrace();
         }
         catch (IOException e) {
-            System.err.println(e);
+            e.printStackTrace();
         }
     }
 

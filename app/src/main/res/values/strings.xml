@@ -5,6 +5,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="dashboard">Dashboard</string>
     <string name="team">Team</string>
+    <string name="matches">Matches</string>
     <string name="formations">Formations</string>
     <string name="settings">Settings</string>
     <string name="other_actions">Other Actions</string>
@@ -12,7 +13,6 @@
     <string name="team_list">Team List</string>
     <string name="your_teams">Your Teams</string>
     <string name="edit">Edit</string>
-    <string name="matches">Matches</string>
     <string name="upcoming">Upcoming</string>
     <string name="previous">Previous</string>
     <string name="set_up_match">Set Up Match</string>
@@ -45,4 +45,21 @@
     <string name="description">Description</string>
     <string name="team_color">Team Color</string>
     <string name="enter_all_required_fields">Enter All Required Fields</string>
+    <string name="match_events">Match Events</string>
+    <string name="plus_create_new_match_event">+ Create New Match Event</string>
+    <string name="match_event_warning">Match events will be removed once live matches are added in a future update. Player statistics (goals, assists, bookings and etc.) that were added using match events will remain even after match events are removed.</string>
+    <string name="no_players">There are no players in your team. Go to the team page to add players.</string>
+    <string name="greyed_out_buttons_warning">The greyed out buttons are placeholders for pages that will be added in a future update.</string>
+    <string name="profile">Profile</string>
+    <string name="players">Players</string>
+    <string name="add_player">Add Player</string>
+    <string name="edit_player">Edit Player</string>
+    <string name="remove_player">Remove Player</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="jersey_number">Jersey Number</string>
+    <string name="positions">Positions</string>
+    <string name="plus_add_player">+ Add Player</string>
+    <string name="save_successful">Save Successful</string>
+    <string name="match_event">Match Event</string>
 </resources>

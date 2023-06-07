@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.supersub.R;
-import com.example.supersub.models.Team;
 import com.example.supersub.models.TeamFacade;
 
 import java.util.ArrayList;
@@ -52,7 +51,7 @@ public class TeamListAdapter extends RecyclerView.Adapter<TeamListAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.team_card, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.team_list_team_card, parent, false);
         ViewHolder viewHolder = new ViewHolder(view, onTeamListener);
         return viewHolder;
     }

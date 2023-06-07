@@ -14,7 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.supersub.R;
+import com.example.supersub.models.Team;
 import com.example.supersub.models.TeamFacade;
+import com.example.supersub.ui.DrawerHeaderSetter;
 import com.example.supersub.ui.DrawerLocker;
 import com.example.supersub.ui.adapters.TeamListAdapter;
 import com.example.supersub.ui.VerticalSpaceItemDecoration;
@@ -24,6 +26,7 @@ import java.util.ArrayList;
 public class TeamListFragment extends Fragment implements TeamListAdapter.OnTeamListener {
     private RecyclerView recyclerView;
     private Button buttonNewTeam;
+    private ArrayList<TeamFacade> teamFacades;
 
     @Nullable
     @Override
@@ -39,8 +42,8 @@ public class TeamListFragment extends Fragment implements TeamListAdapter.OnTeam
         recyclerView = view.findViewById(R.id.rv_team_list);
         buttonNewTeam = view.findViewById(R.id.button_new_team);
 
-        ArrayList<TeamFacade> teamFacades = TeamFacade.readAll(view.getContext());
         //TODO: if teamFacades.size() == 0, display a layout prompting the user to create their first team
+        teamFacades = TeamFacade.readAll(view.getContext());
         TeamListAdapter adapter = new TeamListAdapter(teamFacades, this);
 
         recyclerView.setAdapter(adapter);
@@ -60,6 +63,8 @@ public class TeamListFragment extends Fragment implements TeamListAdapter.OnTeam
 
     @Override
     public void onTeamClick(int position) {
+        Team.setCurrentTeam(getContext(), teamFacades.get(position));
+        ((DrawerHeaderSetter) getActivity()).updateDrawerHeader(Team.getCurrentTeam());
         Navigation.findNavController(getView()).navigate(
                 TeamListFragmentDirections.actionTeamListFragmentToDashboardFragment()
         );

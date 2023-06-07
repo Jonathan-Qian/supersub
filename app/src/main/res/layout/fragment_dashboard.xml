@@ -55,7 +55,7 @@
                         style="@style/TypeBody"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="8dp"
+                        android:layout_marginRight="@dimen/smaller_view_margin"
                         android:layout_weight="1"
                         android:drawableBottom="@drawable/ic_add"
                         android:drawableTint="@color/white"
@@ -74,7 +74,7 @@
                         style="@style/TypeBody"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
+                        android:layout_marginLeft="@dimen/smaller_view_margin"
                         android:layout_weight="1"
                         android:drawableBottom="@drawable/ic_play"
                         android:drawableTint="@color/white"
@@ -109,6 +109,63 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/default_view_margin"
+        android:text="@string/match_events" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_view_margin"
+        app:cardCornerRadius="@dimen/default_corner_radius">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/light_grey"
+            android:orientation="vertical"
+            android:padding="@dimen/default_layout_padding">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/default_corner_radius">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/red"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/default_layout_padding">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_warning"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        style="@style/TypeBody"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/default_view_margin"
+                        android:text="@string/match_event_warning"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_view_margin"
+                android:text="@string/plus_create_new_match_event"
+                style="@style/TypeBody" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        style="@style/TypeHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_view_margin"
         android:text="@string/team" />
 
     <com.google.android.material.card.MaterialCardView
@@ -117,31 +174,25 @@
         android:layout_marginTop="@dimen/default_view_margin"
         app:cardCornerRadius="@dimen/default_corner_radius">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             android:background="@color/light_grey"
             android:padding="@dimen/default_layout_padding">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_dashboard_team_card_players"
                 android:layout_width="match_parent"
-                android:layout_height="256dp"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toTopOf="@+id/button"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_height="wrap_content" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/button_manage_team"
                 style="@style/TypeBody"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/view_and_manage_team"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_marginTop="@dimen/default_view_margin"
+                android:text="@string/view_and_manage_team" />
+        </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 </LinearLayout>

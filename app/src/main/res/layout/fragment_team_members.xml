@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/default_layout_padding">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/players"
+        style="@style/TypeHeading" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_view_margin"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_add_player"
+            style="@style/TypeBody"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/smaller_view_margin"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_add"
+            android:drawableTint="@color/white"
+            android:text="@string/add_player" />
+
+        <Button
+            android:id="@+id/button_edit_player"
+            style="@style/TypeBody"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_edit"
+            android:drawableTint="@color/white"
+            android:text="@string/edit_player" />
+
+        <Button
+            android:id="@+id/button_remove_player"
+            style="@style/TypeBody"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/smaller_view_margin"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_remove"
+            android:drawableTint="@color/white"
+            android:text="@string/remove_player" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_team_players_list"
+        android:layout_marginTop="@dimen/default_view_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

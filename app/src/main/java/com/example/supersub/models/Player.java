@@ -1,29 +1,38 @@
 package com.example.supersub.models;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Player {
-    public long id;
-    private String firstName;
-    private String lastName;
-    private int jerseyNumber;
+    private String firstName, lastName;
+    private int jerseyNumber, goals, assists, yellowCards, redCards;
     private PositionGroup positions;
-    private int goals;
-    private int assists;
-    private int yellowCards;
-    private int redCards;
+    private final String PLAYER_ID;
+    //TODO: add notes and birthday
 
-    public Player(String firstName, String lastName, int jerseyNumber, int goals, int assists, int yellowCards, int redCards) {
+    public static final String PLAYER_POSITION_GROUP_NAME = "Player";
+    public static final String PLAYER_POSITION_GROUP_SYMBOL = "PL";
+
+    public Player(String firstName, String lastName, int jerseyNumber, PositionGroup positions, int goals, int assists, int yellowCards, int redCards, String id) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.jerseyNumber = jerseyNumber;
+        this.positions = positions;
         this.goals = goals;
         this.assists = assists;
         this.yellowCards = yellowCards;
         this.redCards = redCards;
+        this.PLAYER_ID = id;
+    }
+    public Player(String firstName, String lastName, int jerseyNumber, int goals, int assists, int yellowCards, int redCards, String id) {
+        this(firstName, lastName, jerseyNumber, new PositionGroup(PLAYER_POSITION_GROUP_NAME, PLAYER_POSITION_GROUP_SYMBOL), goals, assists, yellowCards, redCards, id);
+    }
+    public Player(String firstName, String lastName, int jerseyNumber, PositionGroup positions) {
+        this(firstName, lastName, jerseyNumber);
+        this.positions = positions;
     }
     public Player(String firstName, String lastName, int jerseyNumber) {
-        this(firstName, lastName, jerseyNumber, 0, 0, 0, 0);
+        this(firstName, lastName, jerseyNumber, 0, 0, 0, 0, "player_" + UUID.randomUUID().toString());
     }
 
     public String getFirstName() {
@@ -48,6 +57,14 @@ public class Player {
 
     public void setJerseyNumber(int jerseyNumber) {
         this.jerseyNumber = jerseyNumber;
+    }
+
+    public PositionGroup getPositions() {
+        return positions;
+    }
+
+    public void setPositions(PositionGroup positions) {
+        this.positions = positions;
     }
 
     public int getGoals() {
@@ -80,5 +97,9 @@ public class Player {
 
     public void setRedCards(int redCards) {
         this.redCards = redCards;
+    }
+
+    public String getPLAYER_ID() {
+        return PLAYER_ID;
     }
 }

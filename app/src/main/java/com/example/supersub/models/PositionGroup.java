@@ -8,6 +8,7 @@ public class PositionGroup extends Positions.Position {
     public PositionGroup(String name, String symbol, ArrayList<Integer> positionIds) {
         super(name, symbol);
         this.positionIds = positionIds;
+        //TODO: Add a validate function to remove duplicate positions
     }
     public PositionGroup(String name, String symbol) {
         this(name, symbol, new ArrayList<Integer>());
@@ -23,6 +24,14 @@ public class PositionGroup extends Positions.Position {
 
     public String getPositionSymbol(int index) {
         return Positions.getPositionSymbol(positionIds.get(index));
+    }
+
+    public int getPositionId(int index) {
+        return positionIds.get(index);
+    }
+
+    public int length() {
+        return positionIds.size();
     }
 
     @Override

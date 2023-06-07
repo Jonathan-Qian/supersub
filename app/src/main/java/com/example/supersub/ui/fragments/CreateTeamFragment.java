@@ -53,7 +53,7 @@ public class CreateTeamFragment extends Fragment {
         buttonAddTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!(etTeamName.getText().toString().equals(""))) {
+                if (!etTeamName.getText().toString().equals("")) {
                     TeamFacade teamFacade = new TeamFacade(
                             etTeamName.getText().toString(),
                             etSeason.getText().toString(),
@@ -64,6 +64,8 @@ public class CreateTeamFragment extends Fragment {
                                     Integer.parseInt(etColorB.getText().toString())
                             )
                     );
+                    //TODO: Add proper colour picker so the app doesn't crash if you don't enter all colour text fields
+                    //TODO: Colour picker should start at a random colour so if the user chooses not to set the team colour, the teams will still have different colours
 
                     teamFacade.write(view.getContext());
 

@@ -2,6 +2,9 @@
 <resources>
     <dimen name="default_layout_padding">16dp</dimen>
     <dimen name="default_view_margin">16dp</dimen>
+    <dimen name="smaller_view_margin">8dp</dimen>
     <dimen name="default_corner_radius">16dp</dimen>
     <dimen name="default_elevation">8dp</dimen>
+    <dimen name="text_size_heading">24sp</dimen>
+    <dimen name="text_size_title">32sp</dimen>
 </resources>

@@ -18,7 +18,11 @@
     <fragment
         android:id="@+id/dashboardFragment"
         android:name="com.example.supersub.ui.fragments.DashboardFragment"
-        android:label="@string/dashboard" />
+        android:label="@string/dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_teamMainFragment"
+            app:destination="@id/teamMainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/createTeamFragment"
         android:name="com.example.supersub.ui.fragments.CreateTeamFragment"
@@ -27,4 +31,20 @@
             android:id="@+id/action_createTeamFragment_to_teamListFragment"
             app:destination="@id/teamListFragment" />
     </fragment><action android:id="@+id/action_global_teamListFragment" app:destination="@id/teamListFragment"/><action android:id="@+id/action_global_dashboardFragment" app:destination="@id/dashboardFragment"/>
+    <fragment
+        android:id="@+id/teamMainFragment"
+        android:name="com.example.supersub.ui.fragments.TeamMainFragment"
+        android:label="TeamMainFragment" >
+        <action
+            android:id="@+id/action_teamMainFragment_to_addPlayerFragment"
+            app:destination="@id/addPlayerFragment" />
+    </fragment><action android:id="@+id/action_global_teamMainFragment" app:destination="@id/teamMainFragment"/>
+    <fragment
+        android:id="@+id/addPlayerFragment"
+        android:name="com.example.supersub.ui.fragments.AddPlayerFragment"
+        android:label="AddPlayerFragment" >
+        <action
+            android:id="@+id/action_addPlayerFragment_to_teamMainFragment"
+            app:destination="@id/teamMainFragment" />
+    </fragment>
 </navigation>
