@@ -1,8 +1,9 @@
 package com.example.supersub.models;
 
 import android.content.Context;
-import android.content.res.AssetManager;
 import android.util.Xml;
+
+import com.example.supersub.models.position.PositionGroup;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -79,6 +80,56 @@ public class Team {
 
     public void setPlayers(ArrayList<Player> players) {
         this.players = players;
+    }
+
+    public int indexOf(int jerseyNumber) {
+        int index = -1;
+
+        for (int i = 0; i < players.size(); i++) {
+            if (players.get(i).getJerseyNumber() == jerseyNumber) {
+                return i;
+            }
+        }
+
+        return index;
+    }
+
+    public Player topScorer() {
+        if (players.size() != 0) {
+            int index = 0;
+            int goals = players.get(index).getGoals();
+
+            for (int i = index; i < players.size(); i++) {
+                if (players.get(i).getGoals() > goals) {
+                    index = i;
+                    goals = players.get(i).getGoals();
+                }
+            }
+
+            return players.get(index);
+        }
+        else {
+            return null;
+        }
+    }
+
+    public Player topAssister() {
+        if (players.size() != 0) {
+            int index = 0;
+            int assists = players.get(index).getAssists();
+
+            for (int i = index; i < players.size(); i++) {
+                if (players.get(i).getGoals() > assists) {
+                    index = i;
+                    assists = players.get(i).getGoals();
+                }
+            }
+
+            return players.get(index);
+        }
+        else {
+            return null;
+        }
     }
 
     private void open(Context context) {

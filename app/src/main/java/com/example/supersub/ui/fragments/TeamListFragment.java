@@ -18,13 +18,13 @@ import com.example.supersub.models.Team;
 import com.example.supersub.models.TeamFacade;
 import com.example.supersub.ui.DrawerHeaderSetter;
 import com.example.supersub.ui.DrawerLocker;
-import com.example.supersub.ui.adapters.TeamListAdapter;
 import com.example.supersub.ui.VerticalSpaceItemDecoration;
+import com.example.supersub.ui.adapters.TeamListAdapter;
 
 import java.util.ArrayList;
 
 public class TeamListFragment extends Fragment implements TeamListAdapter.OnTeamListener {
-    private RecyclerView recyclerView;
+    private RecyclerView rvTeams;
     private Button buttonNewTeam;
     private ArrayList<TeamFacade> teamFacades;
 
@@ -39,17 +39,17 @@ public class TeamListFragment extends Fragment implements TeamListAdapter.OnTeam
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        recyclerView = view.findViewById(R.id.rv_team_list);
+        rvTeams = view.findViewById(R.id.rv_team_list);
         buttonNewTeam = view.findViewById(R.id.button_new_team);
 
         //TODO: if teamFacades.size() == 0, display a layout prompting the user to create their first team
         teamFacades = TeamFacade.readAll(view.getContext());
         TeamListAdapter adapter = new TeamListAdapter(teamFacades, this);
 
-        recyclerView.setAdapter(adapter);
+        rvTeams.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.addItemDecoration(new VerticalSpaceItemDecoration(32));
+        rvTeams.setLayoutManager(layoutManager);
+        rvTeams.addItemDecoration(new VerticalSpaceItemDecoration(32));
 
         buttonNewTeam.setOnClickListener(new View.OnClickListener() {
             @Override

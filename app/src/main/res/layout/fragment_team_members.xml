@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="@dimen/default_layout_padding">
 
     <TextView
+        style="@style/TypeHeading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/players"
-        style="@style/TypeHeading" />
+        android:text="@string/players" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,17 +29,7 @@
             android:text="@string/add_player" />
 
         <Button
-            android:id="@+id/button_edit_player"
-            style="@style/TypeBody"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableLeft="@drawable/ic_edit"
-            android:drawableTint="@color/white"
-            android:text="@string/edit_player" />
-
-        <Button
-            android:id="@+id/button_remove_player"
+            android:id="@+id/button_remove_players"
             style="@style/TypeBody"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -47,12 +37,34 @@
             android:layout_weight="1"
             android:drawableLeft="@drawable/ic_remove"
             android:drawableTint="@color/white"
-            android:text="@string/remove_player" />
+            android:text="@string/remove_players"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_view_margin"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/TypeSubHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/player_count" />
+
+        <TextView
+            android:id="@+id/tv_team_members_player_count"
+            style="@style/TypeSubHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/smaller_view_margin"
+            android:text="number" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_team_players_list"
-        android:layout_marginTop="@dimen/default_view_margin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_view_margin" />
 </LinearLayout>

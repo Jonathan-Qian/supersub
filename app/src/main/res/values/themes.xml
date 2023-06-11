@@ -13,6 +13,16 @@
         <item name="color">@color/white</item>
     </style>
 
+    <style name="TypeXL">
+        <item name="android:textSize">@dimen/text_size_XL</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TypeHuge">
+        <item name="android:textSize">@dimen/text_size_huge</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="TypeTitle">
         <item name="android:textSize">@dimen/text_size_title</item>
         <item name="android:textStyle">bold</item>
@@ -24,12 +34,16 @@
     </style>
 
     <style name="TypeSubHeading">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">@dimen/text_size_sub_heading</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TypeBody">
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">@dimen/text_size_body</item>
+    </style>
+
+    <style name="TypeCaption">
+        <item name="android:textSize">@dimen/text_size_caption</item>
     </style>
 
     <style name="myPopupMenuTextAppearanceSmall" parent="@style/TextAppearance.AppCompat.Widget.PopupMenu.Small">

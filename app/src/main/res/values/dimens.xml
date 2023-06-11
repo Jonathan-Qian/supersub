@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="default_layout_padding">16dp</dimen>
+    <dimen name="larger_view_margin">32dp</dimen>
     <dimen name="default_view_margin">16dp</dimen>
     <dimen name="smaller_view_margin">8dp</dimen>
     <dimen name="default_corner_radius">16dp</dimen>
     <dimen name="default_elevation">8dp</dimen>
-    <dimen name="text_size_heading">24sp</dimen>
+    <dimen name="text_size_XL">80sp</dimen>
+    <dimen name="text_size_huge">64sp</dimen>
     <dimen name="text_size_title">32sp</dimen>
+    <dimen name="text_size_heading">24sp</dimen>
+    <dimen name="text_size_sub_heading">18sp</dimen>
+    <dimen name="text_size_body">12sp</dimen>
+    <dimen name="text_size_caption">10sp</dimen>
 </resources>

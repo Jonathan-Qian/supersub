@@ -1,6 +1,7 @@
 package com.example.supersub.models;
 
-import java.util.ArrayList;
+import com.example.supersub.models.position.PositionGroup;
+
 import java.util.UUID;
 
 public class Player {
@@ -23,6 +24,7 @@ public class Player {
         this.yellowCards = yellowCards;
         this.redCards = redCards;
         this.PLAYER_ID = id;
+        validate();
     }
     public Player(String firstName, String lastName, int jerseyNumber, int goals, int assists, int yellowCards, int redCards, String id) {
         this(firstName, lastName, jerseyNumber, new PositionGroup(PLAYER_POSITION_GROUP_NAME, PLAYER_POSITION_GROUP_SYMBOL), goals, assists, yellowCards, redCards, id);
@@ -30,6 +32,7 @@ public class Player {
     public Player(String firstName, String lastName, int jerseyNumber, PositionGroup positions) {
         this(firstName, lastName, jerseyNumber);
         this.positions = positions;
+        validate();
     }
     public Player(String firstName, String lastName, int jerseyNumber) {
         this(firstName, lastName, jerseyNumber, 0, 0, 0, 0, "player_" + UUID.randomUUID().toString());
@@ -101,5 +104,19 @@ public class Player {
 
     public String getPLAYER_ID() {
         return PLAYER_ID;
+    }
+
+    public void validate() {
+        firstName = capitalizeName(firstName);
+        lastName = capitalizeName(lastName);
+        positions.removeRedundant();
+    }
+
+    private String capitalizeName(String name) {
+        if (Character.isLowerCase(name.charAt(0))) {
+            name = name.substring(0, 1).toUpperCase() + name.substring(1);
+        }
+
+        return name;
     }
 }

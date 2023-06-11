@@ -1,4 +1,4 @@
-package com.example.supersub.models;
+package com.example.supersub.models.position;
 
 import android.content.Context;
 
@@ -30,18 +30,39 @@ public class Positions {
             return symbol;
         }
 
+        public boolean isGroup() {
+            return false;
+        }
+
         @Override
         public String toString() {
             return "Position with name: " + this.name + "; with symbol: " + this.symbol;
         }
     }
 
-    public static String getPositionName(int id) {
-        return positions.get(id).name;
+    public static String getPositionName(int index) {
+        return positions.get(index).name;
     }
 
-    public static String getPositionSymbol(int id) {
-        return positions.get(id).symbol;
+    public static String getPositionSymbol(int index) {
+        return positions.get(index).symbol;
+    }
+
+    public static boolean isGroup(int index) {
+        return positions.get(index).isGroup();
+    }
+
+    public static ArrayList<Integer> getGroupContents(int index) {
+        ArrayList<Integer> groupContents = new ArrayList<>();
+
+        if (isGroup(index)) {
+            groupContents = ((PositionGroup) positions.get(index)).getPositionIds();
+        }
+        else {
+            System.out.println("Position at " + index + " is not a PositionGroup");
+        }
+
+        return groupContents;
     }
 
     public static int indexOf(String name) {

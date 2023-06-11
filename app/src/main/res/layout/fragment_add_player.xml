@@ -13,7 +13,6 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/textView2"
             style="@style/TypeHeading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -92,7 +91,7 @@
 
     <include
         android:id="@+id/chip_add_position"
-        layout="@layout/position_chip" />
+        layout="@layout/chip_position" />
 
     <Button
         android:id="@+id/button_add_player"

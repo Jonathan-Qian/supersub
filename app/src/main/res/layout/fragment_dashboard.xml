@@ -1,198 +1,241 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="@dimen/default_layout_padding"
     tools:context=".ui.fragments.DashboardFragment">
 
-    <TextView
-        style="@style/TypeHeading"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/matches" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/default_layout_padding">
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_view_margin"
-        app:cardCornerRadius="@dimen/default_corner_radius">
-
-        <FrameLayout
+        <TextView
+            style="@style/TypeHeading"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:text="@string/matches" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_view_margin"
+            app:cardCornerRadius="@dimen/default_corner_radius">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/light_grey"
+                    android:divider="?android:dividerHorizontal"
+                    android:orientation="vertical"
+                    android:padding="@dimen/default_layout_padding"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/upcoming" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/default_view_margin"
+                        android:gravity="center"
+                        android:text="@string/previous" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <Button
+                            style="@style/TypeBody"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/smaller_view_margin"
+                            android:layout_weight="1"
+                            android:drawableBottom="@drawable/ic_add"
+                            android:drawableTint="@color/white"
+                            android:text="@string/set_up_match" />
+
+                        <Button
+                            style="@style/TypeBody"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawableBottom="@drawable/ic_edit"
+                            android:drawableTint="@color/white"
+                            android:text="@string/edit_match" />
+
+                        <Button
+                            style="@style/TypeBody"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/smaller_view_margin"
+                            android:layout_weight="1"
+                            android:drawableBottom="@drawable/ic_play"
+                            android:drawableTint="@color/white"
+                            android:text="@string/start_match" />
+                    </LinearLayout>
+
+                    <Button
+                        style="@style/TypeBody"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/view_all_matches" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#A0000000"
+                    android:gravity="center"
+                    android:padding="@dimen/default_layout_padding">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/matches_not_available"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+            </FrameLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            style="@style/TypeHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_view_margin"
+            android:text="@string/match_events" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_view_margin"
+            app:cardCornerRadius="@dimen/default_corner_radius">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/light_grey"
-                android:divider="?android:dividerHorizontal"
                 android:orientation="vertical"
-                android:padding="@dimen/default_layout_padding"
-                android:showDividers="middle">
+                android:padding="@dimen/default_layout_padding">
 
-                <TextView
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/upcoming" />
+                    app:cardCornerRadius="@dimen/default_corner_radius">
 
-                <TextView
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/red"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/default_layout_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_warning"
+                            app:tint="@color/white" />
+
+                        <TextView
+                            style="@style/TypeBody"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/default_view_margin"
+                            android:text="@string/match_event_warning"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <Button
+                    android:id="@+id/button_match_event"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/default_view_margin"
-                    android:gravity="center"
-                    android:text="@string/previous" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <Button
-                        style="@style/TypeBody"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="@dimen/smaller_view_margin"
-                        android:layout_weight="1"
-                        android:drawableBottom="@drawable/ic_add"
-                        android:drawableTint="@color/white"
-                        android:text="@string/set_up_match" />
-
-                    <Button
-                        style="@style/TypeBody"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:drawableBottom="@drawable/ic_edit"
-                        android:drawableTint="@color/white"
-                        android:text="@string/edit_match" />
-
-                    <Button
-                        style="@style/TypeBody"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/smaller_view_margin"
-                        android:layout_weight="1"
-                        android:drawableBottom="@drawable/ic_play"
-                        android:drawableTint="@color/white"
-                        android:text="@string/start_match" />
-                </LinearLayout>
-
-                <Button
-                    style="@style/TypeBody"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/view_all_matches" />
+                    android:text="@string/plus_create_new_match_event"
+                    style="@style/TypeBody" />
             </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            style="@style/TypeHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_view_margin"
+            android:text="@string/team" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_view_margin"
+            app:cardCornerRadius="@dimen/default_corner_radius">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#C0000000"
-                android:gravity="center"
-                android:padding="@dimen/default_layout_padding">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/matches_not_available"
-                    android:textColor="@color/white" />
-            </LinearLayout>
-        </FrameLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-    <TextView
-        style="@style/TypeHeading"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_view_margin"
-        android:text="@string/match_events" />
-
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_view_margin"
-        app:cardCornerRadius="@dimen/default_corner_radius">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/light_grey"
-            android:orientation="vertical"
-            android:padding="@dimen/default_layout_padding">
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="@dimen/default_corner_radius">
+                android:orientation="vertical"
+                android:background="@color/light_grey"
+                android:divider="?android:dividerHorizontal"
+                android:padding="@dimen/default_layout_padding"
+                android:showDividers="middle">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/red"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/default_layout_padding">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/ic_warning"
-                        app:tint="@color/white" />
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
-                        style="@style/TypeBody"
+                        style="@style/TypeSubHeading"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/default_view_margin"
-                        android:text="@string/match_event_warning"
-                        android:textColor="@color/white" />
+                        android:text="@string/top_scorer" />
+
+                    <TextView
+                        android:id="@+id/tv_dashboard_top_scorer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/smaller_view_margin"
+                        android:text="" />
                 </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/default_view_margin"
-                android:text="@string/plus_create_new_match_event"
-                style="@style/TypeBody" />
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/smaller_view_margin"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-    <TextView
-        style="@style/TypeHeading"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_view_margin"
-        android:text="@string/team" />
+                    <TextView
+                        style="@style/TypeSubHeading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/top_assister" />
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_view_margin"
-        app:cardCornerRadius="@dimen/default_corner_radius">
+                    <TextView
+                        android:id="@+id/tv_dashboard_top_assister"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/smaller_view_margin"
+                        android:text="" />
+                </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="@color/light_grey"
-            android:padding="@dimen/default_layout_padding">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_dashboard_team_card_players"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <Button
-                android:id="@+id/button_manage_team"
-                style="@style/TypeBody"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/default_view_margin"
-                android:text="@string/view_and_manage_team" />
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
-</LinearLayout>
+                <Button
+                    android:id="@+id/button_manage_team"
+                    style="@style/TypeBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/view_and_manage_team" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</ScrollView>

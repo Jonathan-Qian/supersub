@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,13 +17,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.supersub.R;
 import com.example.supersub.models.Player;
 import com.example.supersub.models.Team;
+import com.example.supersub.ui.VerticalSpaceItemDecoration;
 import com.example.supersub.ui.adapters.TeamMembersAdapter;
 
 import java.util.ArrayList;
 
-public class TeamMembersFragment extends Fragment {
-    private Button buttonAddPlayer, buttonEditPlayer, buttonRemovePlayer;
-    private RecyclerView recyclerView;
+public class TeamMembersFragment extends Fragment implements TeamMembersAdapter.OnPlayerListener {
+    private Button buttonAddPlayer, buttonRemovePlayers;
+    private TextView tvPlayerCount;
+    private RecyclerView rvPlayers;
 
     @Nullable
     @Override
@@ -35,9 +38,9 @@ public class TeamMembersFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         buttonAddPlayer = view.findViewById(R.id.button_add_player);
-        buttonEditPlayer = view.findViewById(R.id.button_edit_player);
-        buttonRemovePlayer = view.findViewById(R.id.button_remove_player);
-        recyclerView = view.findViewById(R.id.rv_team_players_list);
+        buttonRemovePlayers = view.findViewById(R.id.button_remove_players);
+        tvPlayerCount = view.findViewById(R.id.tv_team_members_player_count);
+        rvPlayers = view.findViewById(R.id.rv_team_players_list);
 
         buttonAddPlayer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,10 +52,20 @@ public class TeamMembersFragment extends Fragment {
         });
 
         ArrayList<Player> players = Team.getCurrentTeam().getPlayers();
-        TeamMembersAdapter adapter = new TeamMembersAdapter(players);
+        TeamMembersAdapter adapter = new TeamMembersAdapter(players, this);
 
-        recyclerView.setAdapter(adapter);
+        tvPlayerCount.setText(Integer.toString(adapter.getItemCount()));
+
+        rvPlayers.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
-        recyclerView.setLayoutManager(layoutManager);
+        rvPlayers.setLayoutManager(layoutManager);
+        rvPlayers.addItemDecoration(new VerticalSpaceItemDecoration(32));
+    }
+
+    @Override
+    public void onPlayerClick(int position) {
+        Navigation.findNavController(getView()).navigate(
+                TeamMainFragmentDirections.actionTeamMainFragmentToPlayerProfileFragment(position)
+        );
     }
 }

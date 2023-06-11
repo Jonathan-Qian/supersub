@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_teamMainFragment"
             app:destination="@id/teamMainFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_matchEventFragment"
+            app:destination="@id/matchEventFragment" />
     </fragment>
     <fragment
         android:id="@+id/createTeamFragment"
@@ -38,6 +41,9 @@
         <action
             android:id="@+id/action_teamMainFragment_to_addPlayerFragment"
             app:destination="@id/addPlayerFragment" />
+        <action
+            android:id="@+id/action_teamMainFragment_to_playerProfileFragment"
+            app:destination="@id/playerProfileFragment" />
     </fragment><action android:id="@+id/action_global_teamMainFragment" app:destination="@id/teamMainFragment"/>
     <fragment
         android:id="@+id/addPlayerFragment"
@@ -45,6 +51,25 @@
         android:label="AddPlayerFragment" >
         <action
             android:id="@+id/action_addPlayerFragment_to_teamMainFragment"
+            app:destination="@id/teamMainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/matchEventFragment"
+        android:name="com.example.supersub.ui.fragments.MatchEventFragment"
+        android:label="MatchEventFragment" >
+        <action
+            android:id="@+id/action_matchEventFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playerProfileFragment"
+        android:name="com.example.supersub.ui.fragments.PlayerProfileFragment"
+        android:label="PlayerProfileFragment" >
+        <argument
+            android:name="playerIndex"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_playerProfileFragment_to_teamMainFragment"
             app:destination="@id/teamMainFragment" />
     </fragment>
 </navigation>

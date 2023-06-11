@@ -16,7 +16,6 @@ import androidx.navigation.Navigation;
 
 import com.example.supersub.R;
 import com.example.supersub.models.TeamFacade;
-import com.example.supersub.ui.DrawerLocker;
 
 public class CreateTeamFragment extends Fragment {
     private EditText etTeamName, etSeason, etDescription, etColorR, etColorG, etColorB;

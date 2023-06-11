@@ -1,6 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/default_layout_padding">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_player_profile_player_number"
+                    style="@style/TypeXL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10" />
+
+                <TextView
+                    android:id="@+id/tv_player_profile_player_name"
+                    style="@style/TypeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/larger_view_margin"
+                    android:text="firstName\nlastName" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/TypeHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_view_margin"
+                android:text="@string/positions" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_view_margin"
+                app:cardBackgroundColor="@color/light_grey"
+                app:cardCornerRadius="@dimen/default_corner_radius"
+                app:contentPadding="@dimen/default_layout_padding">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_player_profile_positions"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                style="@style/TypeHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_view_margin"
+                android:text="@string/statistics" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_view_margin"
+                app:cardCornerRadius="@dimen/default_corner_radius">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/light_grey"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/default_layout_padding"
+                    android:divider="?android:dividerVertical"
+                    android:showDividers="middle">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_player_profile_goals"
+                            style="@style/TypeTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/goals" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_player_profile_assists"
+                            style="@style/TypeTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/assists" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_player_profile_yellow_cards"
+                                style="@style/TypeTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/ic_card"
+                                android:drawableTint="@color/deep_yellow"
+                                android:text="0" />
+
+                            <TextView
+                                android:id="@+id/tv_player_profile_red_cards"
+                                style="@style/TypeTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/smaller_view_margin"
+                                android:drawableLeft="@drawable/ic_card"
+                                android:drawableTint="@color/deep_red"
+                                android:text="0" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/bookings" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_grey"
+        android:orientation="horizontal"
+        android:padding="@dimen/default_layout_padding"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/button_player_profile_back"
+            style="@style/TypeCaption"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/default_view_margin"
+            android:layout_weight="1"
+            android:backgroundTint="@color/light_blue"
+            android:drawableLeft="@drawable/ic_back"
+            android:drawableTint="@color/white"
+            android:text="@string/back" />
+
+        <Button
+            android:id="@+id/button_player_profile_edit_player"
+            style="@style/TypeCaption"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_edit"
+            android:drawableTint="@color/white"
+            android:text="@string/edit_player" />
+
+        <Button
+            android:id="@+id/button_player_profile_remove_player"
+            style="@style/TypeCaption"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/default_view_margin"
+            android:layout_weight="1"
+            android:backgroundTint="@color/red"
+            android:drawableLeft="@drawable/ic_remove"
+            android:drawableTint="@color/white"
+            android:text="@string/remove_player" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

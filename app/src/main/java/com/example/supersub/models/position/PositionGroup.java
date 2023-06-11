@@ -1,6 +1,7 @@
-package com.example.supersub.models;
+package com.example.supersub.models.position;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class PositionGroup extends Positions.Position {
     private ArrayList<Integer> positionIds;
@@ -8,7 +9,7 @@ public class PositionGroup extends Positions.Position {
     public PositionGroup(String name, String symbol, ArrayList<Integer> positionIds) {
         super(name, symbol);
         this.positionIds = positionIds;
-        //TODO: Add a validate function to remove duplicate positions
+        sort();
     }
     public PositionGroup(String name, String symbol) {
         this(name, symbol, new ArrayList<Integer>());
@@ -50,5 +51,51 @@ public class PositionGroup extends Positions.Position {
         builder.append("}");
 
         return builder.toString();
+    }
+
+    private int indexOf(int id) {
+        for (int i = 0; i < positionIds.size(); i++) {
+            if (positionIds.get(i) == id) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    @Override
+    public boolean isGroup() {
+        return true;
+    }
+
+    protected ArrayList<Integer> getPositionIds() {
+        return positionIds;
+    }
+
+    public void sort() {
+        Collections.sort(positionIds);
+    }
+
+    public void removeRedundant() {
+        ArrayList<Integer> potentiallyRedundantPositionIds;
+
+        for (int i = 0; i < positionIds.size(); i++) {
+            System.out.println("Doing something");
+            if (Positions.isGroup(i)) {
+                potentiallyRedundantPositionIds = Positions.getGroupContents(i);
+
+                for (int j = 0; j < potentiallyRedundantPositionIds.size(); j++) {
+                    int redundantPositionIdIndex = indexOf(potentiallyRedundantPositionIds.get(j));
+                    System.out.println("index");
+
+                    if (redundantPositionIdIndex > -1) {
+                        positionIds.remove(redundantPositionIdIndex);
+                        System.out.println("redundant removed");
+                    }
+                }
+            }
+        }
+
+        System.out.println("test");
     }
 }

@@ -33,7 +33,7 @@ public class TeamCardAdapter extends RecyclerView.Adapter<TeamCardAdapter.Viewho
     @NonNull
     @Override
     public Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.dashboard_team_card_element, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.element_dashboard_team_card, parent, false);
         TeamCardAdapter.Viewholder viewHolder = new TeamCardAdapter.Viewholder(view);
         return viewHolder;
     }

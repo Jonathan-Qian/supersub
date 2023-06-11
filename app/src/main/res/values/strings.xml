@@ -27,7 +27,7 @@
     <string name="time_optional">Time (Optional)</string>
     <string name="match_duration_optional">Match Duration (Optional)</string>
     <string name="minutes">minutes</string>
-    <string name="player_count">Player Count</string>
+    <string name="player_count">Player Count:</string>
     <string name="a_side_including_goalkeeper">a side (including goalkeeper)</string>
     <string name="plus_new_team">+ New Team</string>
     <string name="plus_create_match">+ Create Match</string>
@@ -53,6 +53,7 @@
     <string name="profile">Profile</string>
     <string name="players">Players</string>
     <string name="add_player">Add Player</string>
+    <string name="remove_players">Remove Players</string>
     <string name="edit_player">Edit Player</string>
     <string name="remove_player">Remove Player</string>
     <string name="first_name">First Name</string>
@@ -62,4 +63,23 @@
     <string name="plus_add_player">+ Add Player</string>
     <string name="save_successful">Save Successful</string>
     <string name="match_event">Match Event</string>
+    <string name="finish_match_event">Finish Match Event</string>
+    <string name="goals">Goals</string>
+    <string name="assists">Assists</string>
+    <string name="yellow_cards">Yellow Cards</string>
+    <string name="red_cards">Red Cards</string>
+    <string name="goals_less_than_0">Goals can\'t be less than 0</string>
+    <string name="assists_less_than_0">Assists can\'t be less than 0</string>
+    <string name="yellow_cards_less_than_0">Yellow cards can\'t be less than 0</string>
+    <string name="red_cards_less_than_0">Red cards can\'t be less than 0</string>
+    <string name="double_yellow_card">Double yellow card converted to red card</string>
+    <string name="yellow_and_red_card">Can\'t have both a red card and yellow card</string>
+    <string name="red_cards_more_than_1">Red cards can\'t be more than 1</string>
+    <string name="jersey_number_already_exists">A player already has this jersey number</string>
+    <string name="team_saved">Team Saved</string>
+    <string name="back">back</string>
+    <string name="bookings">Bookings</string>
+    <string name="top_scorer">Top Scorer</string>
+    <string name="top_assister">Top Assister</string>
+    <string name="player_must_have_jersey_number">Player must have a jersey number</string>
 </resources>

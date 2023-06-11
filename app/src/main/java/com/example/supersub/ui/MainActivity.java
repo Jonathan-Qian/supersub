@@ -1,5 +1,13 @@
 package com.example.supersub.ui;
 
+import android.content.res.Configuration;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,18 +17,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
-import android.content.res.Configuration;
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.example.supersub.NavigationDirections;
 import com.example.supersub.R;
-import com.example.supersub.models.Positions;
 import com.example.supersub.models.Team;
+import com.example.supersub.models.position.Positions;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, DrawerLocker, DrawerHeaderSetter {
@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 navController.navigate(
                         NavigationDirections.actionGlobalTeamListFragment()
                 );
+                Toast.makeText(MainActivity.this, R.string.team_saved, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nav_manual_save:
                 Team.getCurrentTeam().write(getApplicationContext());

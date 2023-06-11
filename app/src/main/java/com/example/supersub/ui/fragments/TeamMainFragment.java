@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.supersub.R;
+import com.example.supersub.ui.DrawerLocker;
 import com.example.supersub.ui.adapters.TeamViewPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
@@ -21,6 +22,7 @@ public class TeamMainFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        ((DrawerLocker) getActivity()).setDrawerEnabled(true);
         return inflater.inflate(R.layout.fragment_team_main, container, false);
     }
 

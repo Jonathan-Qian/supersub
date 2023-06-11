@@ -5,26 +5,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.supersub.R;
 import com.example.supersub.models.Player;
 import com.example.supersub.models.Team;
 import com.example.supersub.ui.DrawerLocker;
-import com.example.supersub.ui.adapters.TeamCardAdapter;
-import com.example.supersub.ui.VerticalSpaceItemDecoration;
-
-import java.util.ArrayList;
 
 public class DashboardFragment extends Fragment {
-    private RecyclerView recyclerView;
-    private Button buttonManageTeam;
+    private Button buttonManageTeam, buttonMatchEvent;
+    private TextView tvTopScorer, tvTopAssister;
 
     @Nullable
     @Override
@@ -37,17 +32,53 @@ public class DashboardFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        recyclerView = view.findViewById(R.id.rv_dashboard_team_card_players);
+        buttonMatchEvent = view.findViewById(R.id.button_match_event);
+        tvTopScorer = view.findViewById(R.id.tv_dashboard_top_scorer);
+        tvTopAssister = view.findViewById(R.id.tv_dashboard_top_assister);
         buttonManageTeam = view.findViewById(R.id.button_manage_team);
 
-        ArrayList<Player> players = Team.getCurrentTeam().getPlayers();
-        TeamCardAdapter adapter = new TeamCardAdapter(players);
-        //TODO: If players.size() == 0, show a TextView saying "No Players" instead of the RecyclerView
+        buttonMatchEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(
+                        DashboardFragmentDirections.actionDashboardFragmentToMatchEventFragment()
+                );
+            }
+        });
 
-        recyclerView.setAdapter(adapter);
-        GridLayoutManager layoutManager = new GridLayoutManager(view.getContext(), 3);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.addItemDecoration(new VerticalSpaceItemDecoration(16));
+        Player topScorer;
+
+        if ((topScorer = Team.getCurrentTeam().topScorer()) != null) {
+            StringBuilder builder1 = new StringBuilder();
+
+            builder1.append("#");
+            builder1.append(topScorer.getJerseyNumber());
+            builder1.append(" ");
+            builder1.append(topScorer.getFirstName());
+            builder1.append(" ");
+            builder1.append(topScorer.getLastName());
+            builder1.append(" (");
+            builder1.append(topScorer.getGoals());
+            builder1.append(")");
+            tvTopScorer.setText(builder1.toString());
+        }
+
+        Player topAssister;
+
+        if ((topAssister = Team.getCurrentTeam().topAssister()) != null) {
+            StringBuilder builder2 = new StringBuilder();
+
+            builder2.append("#");
+            builder2.append(topAssister.getJerseyNumber());
+            builder2.append(" ");
+            builder2.append(topAssister.getFirstName());
+            builder2.append(" ");
+            builder2.append(topAssister.getLastName());
+            builder2.append(" (");
+            builder2.append(topAssister.getGoals());
+            builder2.append(")");
+            tvTopAssister.setText(builder2.toString());
+        }
 
         buttonManageTeam.setOnClickListener(new View.OnClickListener() {
             @Override
