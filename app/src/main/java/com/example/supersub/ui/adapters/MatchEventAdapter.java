@@ -160,6 +160,7 @@ public class MatchEventAdapter extends RecyclerView.Adapter<MatchEventAdapter.Vi
                 }
                 else  {
                     holder.tvYellowCards.setText(Integer.toString(yellowCards));
+                    currentPlayer.setYellowCards(currentPlayer.getYellowCards() + 1);
                 }
             }
         });
@@ -201,7 +202,7 @@ public class MatchEventAdapter extends RecyclerView.Adapter<MatchEventAdapter.Vi
     }
 
     public void expand(ViewHolder holder) {
-        int visibility = (holder.expanded.getVisibility() == View.GONE)? View.VISIBLE: View.GONE;
+        int visibility = (holder.expanded.getVisibility() == View.GONE) ? View.VISIBLE: View.GONE;
         TransitionManager.beginDelayedTransition(holder.expander, new AutoTransition());
         holder.expanded.setVisibility(visibility);
     }

@@ -4,6 +4,7 @@
     android:layout_height="64dp">
 
     <View
+        android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/shape_circle"
@@ -13,8 +14,8 @@
         android:id="@+id/tv_position_chip_position"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="+"
-        android:textSize="20dp"
         android:textColor="@color/white"
-        android:layout_gravity="center"/>
+        android:textSize="20dp" />
 </FrameLayout>

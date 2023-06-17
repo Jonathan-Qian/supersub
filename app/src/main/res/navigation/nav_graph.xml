@@ -71,5 +71,19 @@
         <action
             android:id="@+id/action_playerProfileFragment_to_teamMainFragment"
             app:destination="@id/teamMainFragment" />
+        <action
+            android:id="@+id/action_playerProfileFragment_to_editPlayerFragment"
+            app:destination="@id/editPlayerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editPlayerFragment"
+        android:name="com.example.supersub.ui.fragments.EditPlayerFragment"
+        android:label="EditPlayerFragment" >
+        <action
+            android:id="@+id/action_editPlayerFragment_to_playerProfileFragment"
+            app:destination="@id/playerProfileFragment" />
+        <argument
+            android:name="playerIndex"
+            app:argType="integer" />
     </fragment>
 </navigation>

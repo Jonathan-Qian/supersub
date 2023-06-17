@@ -3,6 +3,12 @@ package com.example.supersub.models.position;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/*
+ * PositionGroup(s) are positions that store the IDs (the index) of other positions in them.
+ * The reason they don't just store Position objects is because the only Position objects (other than PositionGroup(s)) that should exist are the Position(s) in Positions.java.
+ * This way, there won't be any duplicate Position(s) floating around and potentially causing confusion.
+ * Basically, as well as storing a list of position references, this class acts as an interface between Positions (since many of Positions' methods are protected) and any other class that attempts to get info about a Position.
+ */
 public class PositionGroup extends Positions.Position {
     private ArrayList<Integer> positionIds;
 
@@ -17,6 +23,10 @@ public class PositionGroup extends Positions.Position {
 
     public void add(int id) {
         positionIds.add(new Integer(id));
+    }
+
+    public void remove(int index) {
+        positionIds.remove(index);
     }
 
     public String getPositionName(int index) {
@@ -53,7 +63,7 @@ public class PositionGroup extends Positions.Position {
         return builder.toString();
     }
 
-    private int indexOf(int id) {
+    public int indexOf(int id) {
         for (int i = 0; i < positionIds.size(); i++) {
             if (positionIds.get(i) == id) {
                 return i;
@@ -80,22 +90,18 @@ public class PositionGroup extends Positions.Position {
         ArrayList<Integer> potentiallyRedundantPositionIds;
 
         for (int i = 0; i < positionIds.size(); i++) {
-            System.out.println("Doing something");
             if (Positions.isGroup(i)) {
                 potentiallyRedundantPositionIds = Positions.getGroupContents(i);
 
                 for (int j = 0; j < potentiallyRedundantPositionIds.size(); j++) {
                     int redundantPositionIdIndex = indexOf(potentiallyRedundantPositionIds.get(j));
-                    System.out.println("index");
 
                     if (redundantPositionIdIndex > -1) {
                         positionIds.remove(redundantPositionIdIndex);
-                        System.out.println("redundant removed");
+                        System.out.println("Redundant position removed");
                     }
                 }
             }
         }
-
-        System.out.println("test");
     }
 }

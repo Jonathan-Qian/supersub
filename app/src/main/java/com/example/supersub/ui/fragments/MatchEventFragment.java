@@ -56,27 +56,20 @@ public class MatchEventFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
         rvPlayers.setLayoutManager(layoutManager);
         rvPlayers.addItemDecoration(new VerticalSpaceItemDecoration(32));
-
-        // the following code is from Stack Overflow and makes the floating action button disappear when scrolling
-        rvPlayers.addOnScrollListener(new RecyclerView.OnScrollListener()
-        {
+        rvPlayers.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy)
             {
-                if (dy > 0 || dy < 0 && fabComplete.isShown())
-                {
+                if (dy < 0 && !fabComplete.isShown()) {
+                    fabComplete.show();
+                }
+                else if (dy > 0 && fabComplete.isShown()) {
                     fabComplete.hide();
                 }
             }
 
             @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState)
-            {
-                if (newState == RecyclerView.SCROLL_STATE_IDLE)
-                {
-                    fabComplete.show();
-                }
-
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
             }
         });

@@ -119,9 +119,9 @@ public class Team {
             int assists = players.get(index).getAssists();
 
             for (int i = index; i < players.size(); i++) {
-                if (players.get(i).getGoals() > assists) {
+                if (players.get(i).getAssists() > assists) {
                     index = i;
-                    assists = players.get(i).getGoals();
+                    assists = players.get(i).getAssists();
                 }
             }
 

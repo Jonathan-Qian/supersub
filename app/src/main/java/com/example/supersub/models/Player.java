@@ -113,8 +113,10 @@ public class Player {
     }
 
     private String capitalizeName(String name) {
-        if (Character.isLowerCase(name.charAt(0))) {
-            name = name.substring(0, 1).toUpperCase() + name.substring(1);
+        if (name.length() > 0) {
+            if (Character.isLowerCase(name.charAt(0))) {
+                name = name.substring(0, 1).toUpperCase() + name.substring(1);
+            }
         }
 
         return name;

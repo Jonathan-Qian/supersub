@@ -75,7 +75,7 @@ public class DashboardFragment extends Fragment {
             builder2.append(" ");
             builder2.append(topAssister.getLastName());
             builder2.append(" (");
-            builder2.append(topAssister.getGoals());
+            builder2.append(topAssister.getAssists());
             builder2.append(")");
             tvTopAssister.setText(builder2.toString());
         }

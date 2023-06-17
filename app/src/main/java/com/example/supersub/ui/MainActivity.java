@@ -57,9 +57,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()) {
             case R.id.nav_dashboard:
                 navController.navigate(
-                        com.example.supersub.NavigationDirections.actionGlobalDashboardFragment()
+                        NavigationDirections.actionGlobalDashboardFragment()
                 );
                 break;
+
+            case R.id.nav_team:
+                navController.navigate(
+                        NavigationDirections.actionGlobalTeamMainFragment()
+                );
+
             case R.id.nav_exit_team:
                 Team.getCurrentTeam().write(getApplicationContext());
                 navController.navigate(
@@ -67,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 );
                 Toast.makeText(MainActivity.this, R.string.team_saved, Toast.LENGTH_SHORT).show();
                 break;
+
             case R.id.nav_manual_save:
                 Team.getCurrentTeam().write(getApplicationContext());
                 Toast.makeText(MainActivity.this, R.string.save_successful, Toast.LENGTH_SHORT).show();

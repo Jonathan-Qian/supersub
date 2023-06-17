@@ -21,6 +21,7 @@ import com.example.supersub.ui.DrawerLocker;
 import com.example.supersub.ui.adapters.PositionChipAdapter;
 
 public class PlayerProfileFragment extends Fragment {
+    private int playerIndex;
     private Player player;
     private TextView tvJerseyNumber, tvName, tvGoals, tvAssists, tvYellowCards, tvRedCards;
     private RecyclerView rvPositions;
@@ -37,7 +38,8 @@ public class PlayerProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        player = Team.getCurrentTeam().getPlayers().get(PlayerProfileFragmentArgs.fromBundle(getArguments()).getPlayerIndex());
+        playerIndex = PlayerProfileFragmentArgs.fromBundle(getArguments()).getPlayerIndex();
+        player = Team.getCurrentTeam().getPlayers().get(playerIndex);
         tvJerseyNumber = view.findViewById(R.id.tv_player_profile_player_number);
         tvName = view.findViewById(R.id.tv_player_profile_player_name);
         tvGoals= view.findViewById(R.id.tv_player_profile_goals);
@@ -51,7 +53,9 @@ public class PlayerProfileFragment extends Fragment {
         buttonRemove = view.findViewById(R.id.button_player_profile_remove_player);
 
         tvJerseyNumber.setText(Integer.toString(player.getJerseyNumber()));
-        tvName.setText(player.getFirstName() + "\n" + player.getLastName());
+        tvName.setText(player.getFirstName() +
+                (player.getFirstName().equals("") || player.getLastName().equals("") ? "" : "\n")
+                + player.getLastName());
         tvGoals.setText(Integer.toString(player.getGoals()));
         tvAssists.setText(Integer.toString(player.getAssists()));
         tvYellowCards.setText(Integer.toString(player.getYellowCards()));
@@ -67,6 +71,15 @@ public class PlayerProfileFragment extends Fragment {
             public void onClick(View view) {
                 Navigation.findNavController(view).navigate(
                         PlayerProfileFragmentDirections.actionPlayerProfileFragmentToTeamMainFragment()
+                );
+            }
+        });
+
+        buttonEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(
+                        PlayerProfileFragmentDirections.actionPlayerProfileFragmentToEditPlayerFragment(playerIndex)
                 );
             }
         });
