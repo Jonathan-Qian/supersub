@@ -6,7 +6,9 @@ import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 
 /*
- * borrowed from stack overflow
+ * Borrowed from Stack Overflow.
+ * This class is simply an ItemDecoration primarily for RecyclerView(s) using GridLayoutManager(s) that allow vertical and horizontal spacing between the RecyclerView's items.
+ * I will not comment this since I didn't write it.
  */
 
 public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
