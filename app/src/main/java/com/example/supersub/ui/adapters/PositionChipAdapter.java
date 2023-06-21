@@ -51,7 +51,7 @@ public class PositionChipAdapter extends RecyclerView.Adapter<PositionChipAdapte
 
     @NonNull
     @Override
-    public PositionChipAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.chip_position, parent, false);
         PositionChipAdapter.ViewHolder viewHolder = new PositionChipAdapter.ViewHolder(view, onChipListener);
         return viewHolder;

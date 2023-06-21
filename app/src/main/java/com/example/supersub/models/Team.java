@@ -23,6 +23,7 @@ public class Team {
     private ArrayList<Player> players;
     private static Team currentTeam;
 
+
     private Team(Context context, TeamFacade teamFacade) {
         this.name = teamFacade.getName();
         this.season = teamFacade.getSeason();
@@ -82,7 +83,7 @@ public class Team {
         this.players = players;
     }
 
-    public int indexOf(int jerseyNumber) {
+    public int indexOfPlayer(int jerseyNumber) {
         int index = -1;
 
         for (int i = 0; i < players.size(); i++) {
@@ -92,6 +93,16 @@ public class Team {
         }
 
         return index;
+    }
+
+    public Player findPlayerById(String id) {
+        for (int i = 0; i < players.size(); i++) {
+            if (players.get(i).getPLAYER_ID().equals(id)) {
+                return players.get(i);
+            }
+        }
+
+        return null;
     }
 
     public Player topScorer() {

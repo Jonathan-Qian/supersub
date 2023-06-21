@@ -82,4 +82,8 @@
     <string name="top_scorer">Top Scorer</string>
     <string name="top_assister">Top Assister</string>
     <string name="player_must_have_jersey_number">Player must have a jersey number</string>
+    <string name="who_assisted_this_goal">Who assisted this goal?</string>
+    <string name="no_one_did">No one did</string>
+    <string name="who_scored_from_this_assist">Who scored from this assist?</string>
+    <string name="which_goal_assist_delete">Which goal and assist do you want to delete?</string>
 </resources>

@@ -105,7 +105,7 @@ public class EditPlayerFragment extends Fragment implements PositionChipAdapter.
                 if (etJerseyNumber.getText().toString().equals("")) {
                     Toast.makeText(view.getContext(), R.string.player_must_have_jersey_number, Toast.LENGTH_SHORT).show();
                 }
-                else if (Team.getCurrentTeam().indexOf(Integer.parseInt(etJerseyNumber.getText().toString())) != -1
+                else if (Team.getCurrentTeam().indexOfPlayer(Integer.parseInt(etJerseyNumber.getText().toString())) != -1
                 && player.getJerseyNumber() != Integer.parseInt(etJerseyNumber.getText().toString())) {
                     Toast.makeText(view.getContext(), R.string.jersey_number_already_exists, Toast.LENGTH_SHORT).show();
                 }
@@ -127,7 +127,7 @@ public class EditPlayerFragment extends Fragment implements PositionChipAdapter.
                     });
                     Navigation.findNavController(view).navigate(
                             EditPlayerFragmentDirections.actionEditPlayerFragmentToPlayerProfileFragment(
-                                    Team.getCurrentTeam().indexOf(new Integer(etJerseyNumber.getText().toString()))
+                                    Team.getCurrentTeam().indexOfPlayer(new Integer(etJerseyNumber.getText().toString()))
                             )
                     );
                 }
