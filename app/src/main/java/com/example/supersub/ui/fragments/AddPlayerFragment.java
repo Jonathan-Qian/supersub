@@ -39,7 +39,10 @@ public class AddPlayerFragment extends Fragment implements PositionChipAdapter.O
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        // Disable the drawer
         ((DrawerLocker) getActivity()).setDrawerEnabled(false);
+
+        // Inflate the layout the corresponds to this fragment
         return inflater.inflate(R.layout.fragment_add_player, container, false);
     }
 
@@ -47,6 +50,7 @@ public class AddPlayerFragment extends Fragment implements PositionChipAdapter.O
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        // Initializing views and other objects
         buttonCancel = view.findViewById(R.id.button_add_player_cancel);
         etFirstName = view.findViewById(R.id.et_add_first_name);
         etLastName = view.findViewById(R.id.et_add_last_name);
@@ -106,6 +110,7 @@ public class AddPlayerFragment extends Fragment implements PositionChipAdapter.O
                             new Integer(etJerseyNumber.getText().toString()),
                             adapter.getPositions()
                     ));
+                    // Sorting the team's players by jersey number after adding a new one to maintain an order
                     Team.getCurrentTeam().getPlayers().sort(new Comparator<Player>() {
                         @Override
                         public int compare(Player player, Player t1) {
@@ -123,10 +128,14 @@ public class AddPlayerFragment extends Fragment implements PositionChipAdapter.O
         });
     }
 
+    // OnChipListener implementation
     @Override
     public void onChipClick(int position) {
+        // Get the index of the Position in Positions corresponding to the chip at position.
         int positionIndex = adapter.getPositions().getPositionId(position);
+        // Add the position back to the popup menu in the correct order.
         menu.getMenu().add(Menu.NONE, positionIndex, positionIndex, Positions.getPositionName(positionIndex));
+        // Remove the position from the PositionGroup in the RecyclerView adapter.
         adapter.removePosition(position);
     }
 }
