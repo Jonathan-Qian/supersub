@@ -74,7 +74,7 @@
     <string name="red_cards_less_than_0">Red cards can\'t be less than 0</string>
     <string name="double_yellow_card">Double yellow card converted to red card</string>
     <string name="yellow_and_red_card">Can\'t have both a red card and yellow card</string>
-    <string name="red_cards_more_than_1">Red cards can\'t be more than 1</string>
+    <string name="red_cards_more_than_1">A player can\'t have more than one red card in a single match</string>
     <string name="jersey_number_already_exists">A player already has this jersey number</string>
     <string name="team_saved">Team Saved</string>
     <string name="back">back</string>

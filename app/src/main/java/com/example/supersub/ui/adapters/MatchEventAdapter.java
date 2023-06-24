@@ -25,6 +25,7 @@ import java.util.ArrayList;
 
 // RecyclerView adapter for that displays match event player cards.
 public class MatchEventAdapter extends RecyclerView.Adapter<MatchEventAdapter.ViewHolder> {
+    // This list contains all the items that will be displayed in the RecyclerView this adapter is used in.
     private ArrayList<Player> players;
 
     public MatchEventAdapter(ArrayList<Player> players) {
@@ -74,7 +75,7 @@ public class MatchEventAdapter extends RecyclerView.Adapter<MatchEventAdapter.Vi
         return viewHolder;
     }
 
-    // This is where the behaviour of each ViewHolder in the RecyclerView will be defined.
+    // This is where the content of each view in each ViewHolder in the RecyclerView is defined.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // Set text of the TextView(s) in the ViewHolder.
@@ -92,24 +93,30 @@ public class MatchEventAdapter extends RecyclerView.Adapter<MatchEventAdapter.Vi
 
         Player currentPlayer = players.get(position);
 
+        // OnClickListener for the decrement button in the incrementGoals "include layout" (see fragment_match_event.xml and element_increment.xml).
         holder.incrementGoals.findViewById(R.id.decrement).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int goals = Integer.parseInt(holder.tvGoals.getText().toString()) - 1;
 
+                // Prevent users from giving a player less than 0 goals.
                 if (goals >= 0) {
+                    // Set the text in the TextView to the new number of goals.
                     holder.tvGoals.setText(Integer.toString(goals));
+                    // Decrement a goal from the player in question.
                     currentPlayer.setGoals(currentPlayer.getGoals() - 1);
                 }
+                // Show a toast message if the user is trying to decrement goals when goals are already at 0.
                 else {
                     Toast.makeText(holder.expander.getContext(), R.string.goals_less_than_0, Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
+        // OnClickListener for the increment button for goals.
         holder.incrementGoals.findViewById(R.id.increment).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { // When the increment goals button is tapped, add a goal to the player and TextView.
                 int goals = Integer.parseInt(holder.tvGoals.getText().toString()) + 1;
                 holder.tvGoals.setText(Integer.toString(goals));
                 currentPlayer.setGoals(currentPlayer.getGoals() + 1);
@@ -117,24 +124,30 @@ public class MatchEventAdapter extends RecyclerView.Adapter<MatchEventAdapter.Vi
             }
         });
 
+        // OnClickListener for the decrement button for assists.
         holder.incrementAssists.findViewById(R.id.decrement).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int assists = Integer.parseInt(holder.tvAssists.getText().toString()) - 1;
 
+                // Prevent users from giving a player less than 0 assists.
                 if (assists >= 0) {
+                    // Set the text in the TextView to the new number of goals.
                     holder.tvAssists.setText(Integer.toString(assists));
+                    // Decrement a goal from the player in question.
                     currentPlayer.setAssists(currentPlayer.getAssists() - 1);
                 }
+                // Show a toast message if the user is trying to decrement assists when assists are already at 0.
                 else {
                     Toast.makeText(holder.expander.getContext(), R.string.assists_less_than_0, Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
+        // OnClickListener for the increment button for assists.
         holder.incrementAssists.findViewById(R.id.increment).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { // When the increment goals button is tapped, add an assist to the player and TextView.
                 int assists = Integer.parseInt(holder.tvAssists.getText().toString()) + 1;
                 holder.tvAssists.setText(Integer.toString(assists));
                 currentPlayer.setAssists(currentPlayer.getAssists() + 1);
@@ -142,36 +155,47 @@ public class MatchEventAdapter extends RecyclerView.Adapter<MatchEventAdapter.Vi
             }
         });
 
+        // OnClickListener for the decrement button for yellow cards.
         holder.incrementYellowCards.findViewById(R.id.decrement).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int yellowCards = Integer.parseInt(holder.tvYellowCards.getText().toString()) - 1;
 
+                // Prevent users from giving a player less than 0 yellow cards.
                 if (yellowCards >= 0) {
                     holder.tvYellowCards.setText(Integer.toString(yellowCards));
                     currentPlayer.setYellowCards(currentPlayer.getYellowCards() - 1);
                 }
+                // Show a toast message if the user is trying to decrement yellow cards when yellow cards are already at 0.
                 else {
                     Toast.makeText(holder.expander.getContext(), R.string.yellow_cards_less_than_0, Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
+        // OnClickListener for the increment button for yellow cards.
         holder.incrementYellowCards.findViewById(R.id.increment).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int yellowCards = Integer.parseInt(holder.tvYellowCards.getText().toString()) + 1;
 
+                // If there are two yellow cards, then this will automatically exchange it for one red card according to the rules of soccer.
                 if (yellowCards > 1) {
+                    // Set the yellow cards TextView to 0 and the red cards TextView to 1, then make the same changes to the Player and show a toast message informing the user of what has happened.
                     holder.tvYellowCards.setText("0");
                     holder.tvRedCards.setText("1");
                     currentPlayer.setYellowCards(currentPlayer.getYellowCards() - 1);
                     currentPlayer.setRedCards(currentPlayer.getRedCards() + 1);
                     Toast.makeText(holder.expander.getContext(), R.string.double_yellow_card, Toast.LENGTH_SHORT).show();
                 }
+                /*
+                 * It is not possible for a player to have both a red card and a yellow card since the red card is already equivalent to two yellow cards (the max amount of yellow cards you can have).
+                 * This prevents the user from having both and shows the user why this is the case using a toast message.
+                 */
                 else if (holder.tvRedCards.getText().equals("1")) {
                     Toast.makeText(holder.expander.getContext(), R.string.yellow_and_red_card, Toast.LENGTH_SHORT).show();
                 }
+                // If the user's input (incrementing the yellow cards) is valid, then increment the TextView and the Player's yellowCards.
                 else  {
                     holder.tvYellowCards.setText(Integer.toString(yellowCards));
                     currentPlayer.setYellowCards(currentPlayer.getYellowCards() + 1);
@@ -179,26 +203,34 @@ public class MatchEventAdapter extends RecyclerView.Adapter<MatchEventAdapter.Vi
             }
         });
 
+        // OnClickListener for the decrement button for red cards.
         holder.incrementRedCards.findViewById(R.id.decrement).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int redCards = Integer.parseInt(holder.tvRedCards.getText().toString()) - 1;
 
+                // Prevent users from giving a player less than 0 red cards.
                 if (redCards >= 0) {
                     holder.tvRedCards.setText(Integer.toString(redCards));
                     currentPlayer.setRedCards(currentPlayer.getRedCards() - 1);
                 }
+                // Show a toast message if the user is trying to decrement red cards when red cards are already at 0.
                 else {
                     Toast.makeText(holder.expander.getContext(), R.string.red_cards_less_than_0, Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
+        // OnClickListener for the increment button for red cards.
         holder.incrementRedCards.findViewById(R.id.increment).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int redCards = Integer.parseInt(holder.tvRedCards.getText().toString()) + 1;
 
+                /*
+                 * A player cannot have more than one red cards in a single match because the player is sent off once they receive a red card.
+                 * This prevents the user from having more than one red card and shows the user why this is the case using a toast message.
+                 */
                 if (redCards <= 1) {
                     holder.tvRedCards.setText(Integer.toString(redCards));
                     currentPlayer.setRedCards(currentPlayer.getRedCards() + 1);
@@ -210,6 +242,7 @@ public class MatchEventAdapter extends RecyclerView.Adapter<MatchEventAdapter.Vi
         });
     }
 
+    // Return the length of players.
     @Override
     public int getItemCount() {
         return players.size();
