@@ -24,7 +24,10 @@ public class DashboardFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        // Enable the drawer.
         ((DrawerLocker) getActivity()).setDrawerEnabled(true);
+
+        // Inflate the layout that corresponds to this fragment.
         return inflater.inflate(R.layout.fragment_dashboard, container, false);
     }
 
@@ -32,11 +35,13 @@ public class DashboardFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        // Initialize views.
         buttonMatchEvent = view.findViewById(R.id.button_match_event);
         tvTopScorer = view.findViewById(R.id.tv_dashboard_top_scorer);
         tvTopAssister = view.findViewById(R.id.tv_dashboard_top_assister);
         buttonManageTeam = view.findViewById(R.id.button_manage_team);
 
+        // Go to the match event page when the match event button is tapped.
         buttonMatchEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,9 +51,12 @@ public class DashboardFragment extends Fragment {
             }
         });
 
+        // Find the top scorer and set the topScorer TextView to a String with the player's number, name and goals.
         Player topScorer;
 
+        // Set the TextView only if there are even players in the team.
         if ((topScorer = Team.getCurrentTeam().topScorer()) != null) {
+            // Since many concatenations will need to be made otherwise, StringBuilder is essential.
             StringBuilder builder1 = new StringBuilder();
 
             builder1.append("#");
@@ -63,6 +71,7 @@ public class DashboardFragment extends Fragment {
             tvTopScorer.setText(builder1.toString());
         }
 
+        // Same as above with assists.
         Player topAssister;
 
         if ((topAssister = Team.getCurrentTeam().topAssister()) != null) {
@@ -80,6 +89,7 @@ public class DashboardFragment extends Fragment {
             tvTopAssister.setText(builder2.toString());
         }
 
+        // Go to the team page when the match event button is tapped.
         buttonManageTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

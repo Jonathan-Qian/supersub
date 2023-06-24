@@ -23,6 +23,7 @@ import com.example.supersub.models.Player;
 
 import java.util.ArrayList;
 
+// RecyclerView adapter for that displays match event player cards.
 public class MatchEventAdapter extends RecyclerView.Adapter<MatchEventAdapter.ViewHolder> {
     private ArrayList<Player> players;
 
@@ -30,19 +31,24 @@ public class MatchEventAdapter extends RecyclerView.Adapter<MatchEventAdapter.Vi
         this.players = players;
     }
 
+    // Getters.
     public ArrayList<Player> getPlayers() {
         return players;
     }
 
+    // The ViewHolder is the container for an item in the RecyclerView similar to how fragments are containers for a page.
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private LinearLayout expander;
-        private GridLayout expanded;
+        // expander and expanded are needed for the drop down functionality of a match event player card.
+        private LinearLayout expander; // The expander is what contains the expanded layout.
+        private GridLayout expanded; // Expanded is the layout that appears when the expander layout expands.
         private ImageView ivDropdown;
         private TextView tvNumber, tvName, tvGoals, tvAssists, tvYellowCards, tvRedCards;
         private View incrementGoals, incrementAssists, incrementYellowCards, incrementRedCards;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            // Initialize views.
             expander = itemView.findViewById(R.id.match_event_card_expander);
             tvNumber = itemView.findViewById(R.id.tv_match_event_player_number);
             tvName = itemView.findViewById(R.id.tv_match_event_player_name);
@@ -62,16 +68,21 @@ public class MatchEventAdapter extends RecyclerView.Adapter<MatchEventAdapter.Vi
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        // Inflate match event card and pass it into a new ViewHolder.
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_match_event_player, parent, false);
         MatchEventAdapter.ViewHolder viewHolder = new MatchEventAdapter.ViewHolder(view);
         return viewHolder;
     }
 
+    // This is where the behaviour of each ViewHolder in the RecyclerView will be defined.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        // Set text of the TextView(s) in the ViewHolder.
         holder.tvNumber.setText(Integer.toString(players.get(position).getJerseyNumber()));
         holder.tvName.setText(players.get(position).getFirstName() + " " + players.get(position).getLastName());
+        // Add a transition to the did the expander layout.
         holder.expander.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+        // Expand the card when the dropdown button is clicked.
         holder.ivDropdown.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -204,7 +215,9 @@ public class MatchEventAdapter extends RecyclerView.Adapter<MatchEventAdapter.Vi
         return players.size();
     }
 
+    // Expand the expander within the ViewHolder.
     public void expand(ViewHolder holder) {
+        // Toggle visibility of the expanded layout and do a smooth animation when it happens.
         int visibility = (holder.expanded.getVisibility() == View.GONE) ? View.VISIBLE: View.GONE;
         TransitionManager.beginDelayedTransition(holder.expander, new AutoTransition());
         holder.expanded.setVisibility(visibility);

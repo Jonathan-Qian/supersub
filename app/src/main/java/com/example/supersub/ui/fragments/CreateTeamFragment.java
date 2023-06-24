@@ -16,6 +16,7 @@ import androidx.navigation.Navigation;
 
 import com.example.supersub.R;
 import com.example.supersub.models.TeamFacade;
+import com.example.supersub.ui.DrawerLocker;
 
 public class CreateTeamFragment extends Fragment {
     private EditText etTeamName, etSeason, etDescription, etColorR, etColorG, etColorB;
@@ -24,6 +25,10 @@ public class CreateTeamFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        // Disable the drawer.
+        ((DrawerLocker) getActivity()).setDrawerEnabled(false);
+
+        // Inflate the layout that corresponds to this fragment.
         return inflater.inflate(R.layout.fragment_create_team, container, false);
     }
 
@@ -31,6 +36,7 @@ public class CreateTeamFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        // Initializing views.
         buttonCancel = view.findViewById(R.id.button_create_team_cancel);
         etTeamName = view.findViewById(R.id.et_team_name);
         etSeason = view.findViewById(R.id.et_season);
@@ -40,6 +46,7 @@ public class CreateTeamFragment extends Fragment {
         etColorB = view.findViewById(R.id.et_color_b);
         buttonAddTeam = view.findViewById(R.id.button_add_team);
 
+        // Go back to the team list page when the cancel button is tapped.
         buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,10 +56,13 @@ public class CreateTeamFragment extends Fragment {
             }
         });
 
+        // Add and write a new team based on the values in the text fields.
         buttonAddTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // If the team name is not empty, continue. Otherwise, show a toast message prompting the user to enter the team name field.
                 if (!etTeamName.getText().toString().equals("")) {
+                    // Write the new TeamFacade.
                     TeamFacade teamFacade = new TeamFacade(
                             etTeamName.getText().toString(),
                             etSeason.getText().toString(),
@@ -68,6 +78,7 @@ public class CreateTeamFragment extends Fragment {
 
                     teamFacade.write(view.getContext());
 
+                    // Return to the team list page.
                     Navigation.findNavController(view).navigate(
                             CreateTeamFragmentDirections.actionCreateTeamFragmentToTeamListFragment()
                     );

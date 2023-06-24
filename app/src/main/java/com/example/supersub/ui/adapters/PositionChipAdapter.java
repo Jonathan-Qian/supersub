@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.supersub.R;
 import com.example.supersub.models.position.PositionGroup;
 
+// RecyclerView adapter that displays position chips.
 public class PositionChipAdapter extends RecyclerView.Adapter<PositionChipAdapter.ViewHolder> {
     private PositionGroup positions;
     private OnChipListener onChipListener;
@@ -19,10 +20,12 @@ public class PositionChipAdapter extends RecyclerView.Adapter<PositionChipAdapte
         this.positions = positions;
         this.onChipListener = onChipListener;
     }
+    // This constructor allows this adapter to not have an OnChipListener so that the fragment class that this adapter will be used in does not have to implement OnChipListener.
     public PositionChipAdapter(PositionGroup positions) {
         this(positions, null);
     }
 
+    // Getters.
     public PositionGroup getPositions() {
         return positions;
     }

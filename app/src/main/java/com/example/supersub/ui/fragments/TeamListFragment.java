@@ -31,7 +31,10 @@ public class TeamListFragment extends Fragment implements TeamListAdapter.OnTeam
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        // Disable the drawer.
         ((DrawerLocker) getActivity()).setDrawerEnabled(false);
+
+        // Inflate the layout that corresponds to this fragment.
         return inflater.inflate(R.layout.fragment_team_list, container, false);
     }
 
@@ -39,18 +42,22 @@ public class TeamListFragment extends Fragment implements TeamListAdapter.OnTeam
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        // Initialize views.
         rvTeams = view.findViewById(R.id.rv_team_list);
         buttonNewTeam = view.findViewById(R.id.button_new_team);
 
+        // Read all TeamFacade(s) and add it to the RecyclerView's adapter.
         //TODO: if teamFacades.size() == 0, display a layout prompting the user to create their first team
         teamFacades = TeamFacade.readAll(view.getContext());
         TeamListAdapter adapter = new TeamListAdapter(teamFacades, this);
 
+        // Set up the team card RecyclerView with the TeamFacade(s) that have just been read above.
         rvTeams.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
         rvTeams.setLayoutManager(layoutManager);
-        rvTeams.addItemDecoration(new VerticalSpaceItemDecoration(32));
+        rvTeams.addItemDecoration(new VerticalSpaceItemDecoration(32)); // Add spacing between the items in the RecyclerView.
 
+        // When the new team button is tapped, go to the create team page.
         buttonNewTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,6 +68,7 @@ public class TeamListFragment extends Fragment implements TeamListAdapter.OnTeam
         });
     }
 
+    // When a team card is clicked, set the current team to the team that was clicked, update the header to display its information and go to the dashboard page.
     @Override
     public void onTeamClick(int position) {
         Team.setCurrentTeam(getContext(), teamFacades.get(position));
